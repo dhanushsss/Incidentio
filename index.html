@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IncidentAI Copilot - AI-Powered Incident Response</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <span class="logo-icon">🚀</span>
+                    <span class="logo-text">IncidentAI Copilot</span>
+                </div>
+                <div class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="nav-links" id="navLinks">
+                    <a href="#about">About</a>
+                    <a href="#what-we-do">What We Do</a>
+                    <a href="#impact">Impact</a>
+                    <a href="#founder">Founder</a>
+                    <a href="#customers">Customers</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title animate-fade-in">
+                    AI-Powered Multi-Cloud<br>
+                    <span class="gradient-text">Incident Response</span>
+                </h1>
+                <p class="hero-subtitle animate-fade-in-delay">
+                    Automatically detect, analyze, and remediate infrastructure incidents across Kubernetes, AWS, GCP, Azure, and on-premises environments.
+                </p>
+                <div class="hero-buttons animate-fade-in-delay-2">
+                    <a href="#what-we-do" class="btn btn-primary">Get Started</a>
+                    <a href="#about" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-background"></div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About IncidentAI Copilot</h2>
+                <p class="section-subtitle">Enterprise-grade incident response platform powered by AI</p>
+            </div>
+            <div class="about-content">
+                <div class="about-card animate-slide-up">
+                    <div class="card-icon">🤖</div>
+                    <h3>AI-Powered Analysis</h3>
+                    <p>GPT-4o-mini analyzes logs and provides intelligent root cause explanations, reducing investigation time by 90%.</p>
+                </div>
+                <div class="about-card animate-slide-up-delay">
+                    <div class="card-icon">⚡</div>
+                    <h3>Real-Time Detection</h3>
+                    <p>Continuous monitoring across all namespaces and cloud platforms with 24/7 automated surveillance.</p>
+                </div>
+                <div class="about-card animate-slide-up-delay-2">
+                    <div class="card-icon">🔧</div>
+                    <h3>Automated Remediation</h3>
+                    <p>One-click fixes with policy-based safety controls, ensuring safe and reliable incident resolution.</p>
+                </div>
+                <div class="about-card animate-slide-up-delay-3">
+                    <div class="card-icon">📊</div>
+                    <h3>Predictive Analytics</h3>
+                    <p>ML models for anomaly detection, capacity planning, and risk scoring to prevent incidents before they occur.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Do Section -->
+    <section id="what-we-do" class="section what-we-do-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">What We Do</h2>
+                <p class="section-subtitle">Comprehensive incident management across your entire infrastructure</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card animate-scale-in">
+                    <div class="feature-header">
+                        <span class="feature-icon">☸️</span>
+                        <h3>Kubernetes Monitoring</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li>Pod failures (CrashLoopBackOff, OOMKilled)</li>
+                        <li>Scheduling issues detection</li>
+                        <li>Resource optimization</li>
+                        <li>Multi-namespace support</li>
+                    </ul>
+                </div>
+                <div class="feature-card animate-scale-in-delay">
+                    <div class="feature-header">
+                        <span class="feature-icon">☁️</span>
+                        <h3>Multi-Cloud Support</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li>AWS (ECS, Lambda, RDS)</li>
+                        <li>Google Cloud Platform</li>
+                        <li>Microsoft Azure</li>
+                        <li>On-premises infrastructure</li>
+                    </ul>
+                </div>
+                <div class="feature-card animate-scale-in-delay-2">
+                    <div class="feature-header">
+                        <span class="feature-icon">📈</span>
+                        <h3>Observability Integration</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li>Prometheus metrics</li>
+                        <li>Grafana dashboards</li>
+                        <li>ELK/OpenSearch logs</li>
+                        <li>Distributed tracing</li>
+                    </ul>
+                </div>
+                <div class="feature-card animate-scale-in-delay-3">
+                    <div class="feature-header">
+                        <span class="feature-icon">🛡️</span>
+                        <h3>Enterprise Features</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li>RBAC & access control</li>
+                        <li>Audit logging</li>
+                        <li>Multi-tenant support</li>
+                        <li>Policy engine</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section id="impact" class="section impact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Impact</h2>
+                <p class="section-subtitle">Measurable results that transform operations</p>
+            </div>
+            <div class="impact-grid">
+                <div class="impact-card animate-float">
+                    <div class="impact-number">70-90%</div>
+                    <div class="impact-label">Reduction in MTTR</div>
+                    <p class="impact-description">Mean Time To Resolution dramatically reduced from hours to minutes</p>
+                </div>
+                <div class="impact-card animate-float-delay">
+                    <div class="impact-number">24/7</div>
+                    <div class="impact-label">Automated Monitoring</div>
+                    <p class="impact-description">Continuous surveillance with zero human intervention required</p>
+                </div>
+                <div class="impact-card animate-float-delay-2">
+                    <div class="impact-number">95%+</div>
+                    <div class="impact-label">Accuracy Rate</div>
+                    <p class="impact-description">Precision in root cause identification and incident classification</p>
+                </div>
+                <div class="impact-card animate-float-delay-3">
+                    <div class="impact-number">2-5 min</div>
+                    <div class="impact-label">Average Resolution</div>
+                    <p class="impact-description">From detection to remediation in under 5 minutes</p>
+                </div>
+            </div>
+            <div class="comparison-table">
+                <div class="table-card animate-slide-in">
+                    <h3>Traditional vs IncidentAI Copilot</h3>
+                    <div class="table-content">
+                        <div class="table-row">
+                            <div class="table-cell">Detection</div>
+                            <div class="table-cell old">Manual monitoring</div>
+                            <div class="table-cell new">✅ Automated 24/7</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell">Analysis</div>
+                            <div class="table-cell old">Manual log review</div>
+                            <div class="table-cell new">✅ AI-powered analysis</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell">Remediation</div>
+                            <div class="table-cell old">Manual fixes</div>
+                            <div class="table-cell new">✅ Automated with approval</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell">MTTR</div>
+                            <div class="table-cell old">15-60 minutes</div>
+                            <div class="table-cell new">✅ 2-5 minutes</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder Section -->
+    <section id="founder" class="section founder-section">
+        <!-- Confetti Animation -->
+        <div class="confetti-container">
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+        </div>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Meet the Founder</h2>
+                <p class="section-subtitle">Building the future of incident response</p>
+            </div>
+            <div class="founder-container">
+                <div class="founder-card animate-rotate-in">
+                    <div class="founder-image-wrapper">
+                        <div class="founder-image-box">
+                            <img src="dhanush.jpg" alt="Dhanush S - Founder & Developer" class="founder-image" id="founderImage" onerror="this.style.display='none'; document.getElementById('imagePlaceholder').style.display='flex';">
+                            <div class="image-placeholder" id="imagePlaceholder" style="display: none;">
+                                <span class="placeholder-icon">👤</span>
+                                <span class="placeholder-text">Image Loading...</span>
+                            </div>
+                        </div>
+                        <div class="image-glow"></div>
+                    </div>
+                    <div class="founder-info">
+                        <div class="ibm-logo-wrapper">
+                            <img src="download.png" alt="IBM" class="ibm-logo">
+                        </div>
+                        <div class="founder-badge">Founder & Developer</div>
+                        <h3 class="founder-name">Dhanush S</h3>
+                        <p class="founder-role">Full-Stack Developer at IBM India Software Labs</p>
+                        <p class="founder-description">
+                            Full-Stack Developer passionate about operations and building intelligent systems. 
+                            Specialized in <strong>Java Spring Boot</strong>, <strong>React</strong>, and <strong>GraphQL</strong>, 
+                            I create solutions that help SREs and DevOps teams sleep better at night. 
+                            Currently working at IBM India Software Labs, I built IncidentAI Copilot to revolutionize 
+                            how organizations handle incidents across multi-cloud environments.
+                        </p>
+                        <div class="founder-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">4+</div>
+                                <div class="stat-label">Years Experience</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">24/7</div>
+                                <div class="stat-label">Dedication</div>
+                            </div>
+                        </div>
+                        <div class="founder-social">
+                            <a href="https://www.linkedin.com/in/dhanush-s-ibm/" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn">
+                                <span>💼</span>
+                            </a>
+                            <a href="https://github.com/dhanushsss" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub">
+                                <span>💻</span>
+                            </a>
+                            <a href="https://dhanushsss.github.io/" target="_blank" rel="noopener noreferrer" class="social-link" title="Portfolio">
+                                <span>🌐</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customers Section -->
+    <section id="customers" class="section customers-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Customers</h2>
+                <p class="section-subtitle">Trusted by leading organizations worldwide</p>
+            </div>
+            <div class="coming-soon-container">
+                <div class="coming-soon-card animate-pulse">
+                    <div class="coming-soon-icon">🚀</div>
+                    <h3>Coming Soon</h3>
+                    <p>We're working with amazing companies to revolutionize their incident response. Stay tuned for customer success stories!</p>
+                    <div class="coming-soon-badge">Early Access Available</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-icon">🚀</span>
+                        <span class="logo-text">IncidentAI Copilot</span>
+                    </div>
+                    <p>Built with ❤️ for SREs who want to sleep better at night.</p>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/in/incident-ops/" target="_blank" rel="noopener noreferrer" class="footer-social-link" title="Company LinkedIn">
+                            <span>💼</span> Follow us on LinkedIn
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Product</h4>
+                        <a href="#about">About</a>
+                        <a href="#what-we-do">Features</a>
+                        <a href="#impact">Impact</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <a href="#">Documentation</a>
+                        <a href="#">Setup Guide</a>
+                        <a href="#">API Docs</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <a href="https://www.linkedin.com/in/incident-ops/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                        <a href="#customers">Customers</a>
+                        <a href="#">Contact</a>
+                        <a href="#">Support</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 IncidentAI Copilot. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
