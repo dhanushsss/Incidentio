@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Effivio — Kubernetes & Cloud Cost Optimization</title>
+    <title>Effivio — Cost planning and FinOps for Kubernetes and cloud</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->
@@ -24,12 +24,13 @@
                     <span></span>
                 </div>
                 <div class="nav-links" id="navLinks">
-                    <a href="#about">About</a>
-                    <a href="#features">Features</a>
-                    <a href="#security">Security</a>
-                    <a href="#efficiency">Efficiency</a>
-                    <a href="#impact">Impact</a>
+                    <a href="#built">What we built</a>
+                    <a href="#support">What we support</a>
+                    <a href="#roadmap">Roadmap</a>
+                    <a href="#why">Why Effivio</a>
                     <a href="#customers">Customers</a>
+                    <a href="#" class="nav-cta nav-cta-secondary">Sign in</a>
+                    <a href="#" class="nav-cta nav-cta-primary">Pricing</a>
                 </div>
             </div>
         </div>
@@ -39,220 +40,230 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <p class="hero-badge">FinOps Platform</p>
                 <h1 class="hero-title animate-fade-in">
-                    Kubernetes & Cloud<br>
-                    <span class="gradient-text">Cost Optimization</span>
+                    Cost planning and FinOps for Kubernetes and cloud — <span class="gradient-text">before you spend.</span>
                 </h1>
                 <p class="hero-subtitle animate-fade-in-delay">
-                    Visibility, attribution, and waste reduction for IT and consulting organizations. 
-                    Unified K8s + AWS cost view, right-sizing recommendations, budgets, and anomaly detection.
+                    See what scaling will cost before you scale. Allocate and charge back by client. Track savings and margin. One platform for consulting teams and MSPs.
                 </p>
                 <div class="hero-buttons animate-fade-in-delay-2">
-                    <a href="#features" class="btn btn-primary">See Features</a>
-                    <a href="#efficiency" class="btn btn-secondary">How It Works</a>
+                    <a href="#" class="btn btn-primary">Sign in</a>
+                    <a href="#" class="btn btn-secondary">Pricing</a>
                 </div>
             </div>
         </div>
         <div class="hero-background"></div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="section about-section">
+    <!-- What we built -->
+    <section id="built" class="section about-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">What Effivio Does</h2>
-                <p class="section-subtitle">Cost, efficiency, and infrastructure clarity in one platform</p>
+                <h2 class="section-title">What we built</h2>
+                <p class="section-subtitle">Current product — cost planning, FinOps intelligence, unified view, and platform</p>
             </div>
-            <div class="about-content">
-                <div class="about-card animate-slide-up">
-                    <div class="card-icon">📊</div>
-                    <h3>Visibility & Attribution</h3>
-                    <p>Per-pod and per-namespace Kubernetes cost; AWS Cost Explorer sync; tag-to-namespace mapping and unified K8s + cloud spend view.</p>
+
+            <div class="built-block">
+                <h3 class="built-block-title">Cost planning <span class="built-badge">Hero capability</span></h3>
+                <div class="about-content">
+                    <div class="about-card animate-slide-up">
+                        <div class="card-icon">📐</div>
+                        <h3>Cost-aware capacity planning</h3>
+                        <p>“If we add N replicas → spend increases by ₹X.” Predict scale-out cost using real cost-per-replica from your clusters. Planning page.</p>
+                    </div>
+                    <div class="about-card animate-slide-up-delay">
+                        <div class="card-icon">🔄</div>
+                        <h3>Cost impact simulation</h3>
+                        <p>Before deploy: “What if we set CPU 500m → 1000m?” Get estimated monthly cost using your rates. No guessing. Optimization page.</p>
+                    </div>
+                    <div class="about-card animate-slide-up-delay-2">
+                        <div class="card-icon">🔔</div>
+                        <h3>Budget and alerts</h3>
+                        <p>Set monthly budgets; get warned or critical alerts when spend crosses thresholds.</p>
+                    </div>
                 </div>
-                <div class="about-card animate-slide-up-delay">
-                    <div class="card-icon">📈</div>
-                    <h3>Analytics & Reporting</h3>
-                    <p>Cost by cluster, namespace, and deployment; executive dashboard; historical trends; tenant-branded monthly PDF reports with audit trail.</p>
+            </div>
+
+            <div class="built-block">
+                <h3 class="built-block-title">FinOps intelligence <span class="built-badge-sub">Not just monitoring</span></h3>
+                <div class="about-content">
+                    <div class="about-card animate-slide-up">
+                        <div class="card-icon">⚡</div>
+                        <h3>Optimization & savings</h3>
+                        <p>Right-size overprovisioned workloads. See recommendations (reduce CPU/memory, remove idle). Mark as Applied and track <strong>savings realized</strong> so you prove ROI.</p>
+                    </div>
+                    <div class="about-card animate-slide-up-delay">
+                        <div class="card-icon">📋</div>
+                        <h3>Chargeback / showback</h3>
+                        <p>Per-client (namespace) cost for 30/60/90 days. Export CSV client-ready. Built for consulting and MSPs.</p>
+                    </div>
+                    <div class="about-card animate-slide-up-delay-2">
+                        <div class="card-icon">🛡️</div>
+                        <h3>Governance</h3>
+                        <p>Flag workloads without requests, untagged AWS spend, idle clusters. Cost governance, not security.</p>
+                    </div>
+                    <div class="about-card animate-slide-up-delay-3">
+                        <div class="card-icon">📊</div>
+                        <h3>Margin analytics</h3>
+                        <p>Enter revenue per month; see gross margin %, infra cost %, and waste %. “This client is 80% margin” vs “this one has high waste.”</p>
+                    </div>
                 </div>
-                <div class="about-card animate-slide-up-delay-2">
-                    <div class="card-icon">⚡</div>
-                    <h3>Optimization & Waste</h3>
-                    <p>Rule-based right-sizing (CPU/memory), idle namespaces, zombie services, unused PVCs, replica optimization—with estimated savings and status tracking.</p>
+            </div>
+
+            <div class="built-block">
+                <h3 class="built-block-title">Unified cost view</h3>
+                <div class="features-grid">
+                    <div class="feature-card animate-scale-in">
+                        <div class="feature-header">
+                            <span class="feature-icon">📈</span>
+                            <h3>Executive dashboard</h3>
+                        </div>
+                        <p class="feature-desc">One view: K8s + AWS (and more) spend, trend, top namespaces, savings unlocked, anomaly hints.</p>
+                    </div>
+                    <div class="feature-card animate-scale-in-delay">
+                        <div class="feature-header">
+                            <span class="feature-icon">📉</span>
+                            <h3>Cost analytics</h3>
+                        </div>
+                        <p class="feature-desc">Cost by cluster, namespace, deployment; date range; trends and CSV export.</p>
+                    </div>
+                    <div class="feature-card animate-scale-in-delay-2">
+                        <div class="feature-header">
+                            <span class="feature-icon">☁️</span>
+                            <h3>Cloud (AWS)</h3>
+                        </div>
+                        <p class="feature-desc">Connect Cost Explorer; tag-to-namespace mapping so cloud cost ties to workloads and chargeback.</p>
+                    </div>
                 </div>
-                <div class="about-card animate-slide-up-delay-3">
-                    <div class="card-icon">🛡️</div>
-                    <h3>Budget & Alerts</h3>
-                    <p>Monthly budget limits; 70% / 90% alerts; email and Slack notifications; statistical anomaly detection on cost.</p>
+            </div>
+
+            <div class="built-block">
+                <h3 class="built-block-title">Platform and operations</h3>
+                <div class="features-grid">
+                    <div class="feature-card animate-scale-in">
+                        <div class="feature-header">
+                            <span class="feature-icon">👥</span>
+                            <h3>Multi-tenant</h3>
+                        </div>
+                        <p class="feature-desc">One product, many clients/tenants. Each tenant sees only their clusters and cost. Perfect for MSPs and delivery teams.</p>
+                    </div>
+                    <div class="feature-card animate-scale-in-delay">
+                        <div class="feature-header">
+                            <span class="feature-icon">📄</span>
+                            <h3>Reports & audit</h3>
+                        </div>
+                        <p class="feature-desc">PDF reports (with optional tenant branding), audit log for compliance and debugging.</p>
+                    </div>
+                    <div class="feature-card animate-scale-in-delay-2">
+                        <div class="feature-header">
+                            <span class="feature-icon">🔧</span>
+                            <h3>Self-host or SaaS</h3>
+                        </div>
+                        <p class="feature-desc">You control data and deployment. Backend, frontend, and Helm-based agent included.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section (Visibility, Analytics, Optimization, Budget) -->
-    <section id="features" class="section what-we-do-section">
+    <!-- What we support -->
+    <section id="support" class="section support-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Features</h2>
-                <p class="section-subtitle">End-to-end FinOps capabilities for Kubernetes and cloud</p>
+                <h2 class="section-title">What Effivio supports</h2>
+                <p class="section-subtitle">Infrastructure, deployment, identity, integrations, and use cases</p>
             </div>
-            <div class="features-grid">
-                <div class="feature-card animate-scale-in">
-                    <div class="feature-header">
-                        <span class="feature-icon">☸️</span>
-                        <h3>Visibility & Cost Attribution</h3>
-                    </div>
-                    <ul class="feature-list">
-                        <li>Kubernetes cost from workload metrics (CPU/memory, replicas) with configurable rates</li>
-                        <li>AWS Cost Explorer integration; daily snapshots; tag-to-namespace mapping</li>
-                        <li>Unified executive view: combined K8s + AWS spend and trends (30/60/90 days)</li>
-                        <li>Cloud accounts page: linked AWS (GCP/Azure later), cost by service, period filters</li>
-                    </ul>
-                </div>
-                <div class="feature-card animate-scale-in-delay">
-                    <div class="feature-header">
-                        <span class="feature-icon">📉</span>
-                        <h3>Cost Analytics & Reporting</h3>
-                    </div>
-                    <ul class="feature-list">
-                        <li>Cost by cluster, namespace, deployment; date range and filters; CSV export</li>
-                        <li>Executive dashboard: spend, trend chart, top namespaces, budget usage, waste %, anomalies</li>
-                        <li>Tenant-branded monthly PDF report (year-month picker); audited on generate/download</li>
-                    </ul>
-                </div>
-                <div class="feature-card animate-scale-in-delay-2">
-                    <div class="feature-header">
-                        <span class="feature-icon">🔧</span>
-                        <h3>Optimization & Waste Reduction</h3>
-                    </div>
-                    <ul class="feature-list">
-                        <li>OptimizationEngine: 7-day workload analysis → right-sizing and waste recommendations</li>
-                        <li>Types: CPU_RIGHT_SIZE, MEMORY_RIGHT_SIZE, IDLE_NAMESPACE, ZOMBIE_SERVICE, UNUSED_PVC, REPLICA_OPTIMIZATION</li>
-                        <li>Optimization dashboard: filter by cluster/namespace; mark APPLIED/DISMISSED; potential savings & waste %</li>
-                    </ul>
-                </div>
-                <div class="feature-card animate-scale-in-delay-3">
-                    <div class="feature-header">
-                        <span class="feature-icon">🔔</span>
-                        <h3>Budget & Alerts</h3>
-                    </div>
-                    <ul class="feature-list">
-                        <li>Per-tenant monthly budget; configurable 70% and 90% alert thresholds</li>
-                        <li>Email (alert_email) and Slack webhook notifications; scheduled daily check (e.g. 9 AM)</li>
-                        <li>Statistical anomaly detection on cost; daily job; anomalies on Executive dashboard</li>
-                    </ul>
-                </div>
+            <div class="support-table-wrapper animate-slide-up">
+                <table class="support-table">
+                    <thead>
+                        <tr>
+                            <th>Area</th>
+                            <th>Supported</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Infrastructure</strong></td>
+                            <td>Kubernetes (any distribution); AWS (Cost Explorer, tag-based allocation). GCP/Azure on roadmap.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Deployment</strong></td>
+                            <td>Self-hosted (Docker/Helm); agent deploys in customer cluster via Helm.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Identity</strong></td>
+                            <td>Email/password; roles: Super Admin, Tenant Admin, Tenant Viewer. MFA/SSO on roadmap.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Integrations</strong></td>
+                            <td>Push-based metrics from agent; AWS Cost Explorer API; optional Slack/email budget alerts.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Use cases</strong></td>
+                            <td>Consulting firms, MSPs, multi-client orgs, delivery teams — anyone who needs per-client cost, margin, and savings visibility.</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
 
-    <!-- Security & Multi-Tenancy Section -->
-    <section id="security" class="section security-section">
+    <!-- What we're building next (Roadmap) -->
+    <section id="roadmap" class="section roadmap-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Multi-Tenancy & Security</h2>
-                <p class="section-subtitle">Roles, isolation, audit, and secure ingestion</p>
+                <h2 class="section-title">What we're building next</h2>
+                <p class="section-subtitle">Roadmap — coming soon</p>
             </div>
-            <div class="features-grid">
-                <div class="feature-card animate-scale-in">
-                    <div class="feature-header">
-                        <span class="feature-icon">👥</span>
-                        <h3>Roles & Access Control</h3>
-                    </div>
-                    <ul class="feature-list">
-                        <li><strong>SUPER_ADMIN</strong>: manage tenants, full audit</li>
-                        <li><strong>TENANT_ADMIN</strong>: clusters, AWS config, budgets, reports</li>
-                        <li><strong>TENANT_VIEWER</strong>: read-only dashboards and reports</li>
-                        <li>All data scoped by tenant_id; context from JWT or X-Tenant-Id (super admin)</li>
-                    </ul>
-                </div>
-                <div class="feature-card animate-scale-in-delay">
-                    <div class="feature-header">
-                        <span class="feature-icon">📋</span>
-                        <h3>Audit & Compliance</h3>
-                    </div>
-                    <ul class="feature-list">
-                        <li>Events: LOGIN, REFRESH_TOKEN, REPORT_GENERATED, REPORT_DOWNLOAD, BUDGET_WARNING_SENT, CLUSTER_CREATED, TOKEN_ROTATED, etc.</li>
-                        <li>Paginated Audit page; super admin can filter by tenant</li>
-                    </ul>
-                </div>
-                <div class="feature-card animate-scale-in-delay-2">
-                    <div class="feature-header">
-                        <span class="feature-icon">🔐</span>
-                        <h3>Auth & Secrets</h3>
-                    </div>
-                    <ul class="feature-list">
-                        <li>JWT access + refresh tokens; configurable TTL; password policy; rate limiting (per IP/user; 429 when exceeded)</li>
-                        <li>Kubeconfig encrypted at rest (AES-256-GCM); never returned in API (masked); ingestion token rotation via API</li>
-                        <li>Push-based token-authenticated ingestion; AWS via DefaultCredentialsProvider / IRSA—no long-lived keys</li>
-                    </ul>
-                </div>
-                <div class="feature-card animate-scale-in-delay-3">
-                    <div class="feature-header">
-                        <span class="feature-icon">📥</span>
-                        <h3>Data Ingestion & Jobs</h3>
-                    </div>
-                    <ul class="feature-list">
-                        <li>Agent (Helm CronJob) in cluster → Metrics API → aggregate per deployment → POST to InfraSight</li>
-                        <li>Scheduled jobs: cost calc (2 AM), AWS sync (3 AM), retention (4 AM), anomaly (5 AM), report (6 AM 1st), budget (9 AM)</li>
-                        <li>One Cost Explorer request per tenant per day; optional “Sync AWS now” and cost-by-service from UI</li>
-                    </ul>
-                </div>
-            </div>
+            <ul class="roadmap-list">
+                <li class="roadmap-item animate-slide-up"><strong>Tenant creation from UI</strong> — Create tenants and invite users without touching API/DB. Faster onboarding.</li>
+                <li class="roadmap-item animate-slide-up-delay"><strong>One-command agent deploy</strong> — Post–cluster-creation: copy one Helm command with URL, token, cluster ID. “Effivio in 5 minutes.”</li>
+                <li class="roadmap-item animate-slide-up-delay-2"><strong>AWS cross-account (assume-role)</strong> — Each tenant’s Cost Explorer in their own AWS account. Unblocks MSPs and multi-account setups.</li>
+                <li class="roadmap-item animate-slide-up-delay"><strong>GCP and Azure</strong> — Multi-cloud cost in one dashboard.</li>
+                <li class="roadmap-item animate-slide-up-delay-2"><strong>MFA / SSO</strong> — Enterprise security and compliance.</li>
+                <li class="roadmap-item animate-slide-up"><strong>Trend-based capacity</strong> — “Cluster will need more nodes by date X” using usage trends (advanced capacity planning).</li>
+                <li class="roadmap-item animate-slide-up-delay"><strong>White-label PDF</strong> — Chargeback and reports with your logo and client name for client-facing deliverables.</li>
+            </ul>
         </div>
     </section>
 
-    <!-- Efficiency Section -->
-    <section id="efficiency" class="section efficiency-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">How Efficient It Is</h2>
-                <p class="section-subtitle">Architecture, performance, and scalability</p>
-            </div>
-            <div class="efficiency-grid">
-                <div class="efficiency-card animate-slide-up">
-                    <h3>Stack & Performance</h3>
-                    <p>Java 21, Spring Boot 3, PostgreSQL, React 18 + TypeScript + Vite. Dedicated cron pool for scheduled jobs; @Async for audit and heavy work. Redis-backed rate limiter for multi-instance deployments.</p>
-                </div>
-                <div class="efficiency-card animate-slide-up-delay">
-                    <h3>Cost & API Efficiency</h3>
-                    <p>Daily AWS sync = one Cost Explorer call per tenant per day; cost-by-service on-demand. Push ingestion: one POST per cluster per run. Cost calculation once per day over stored metrics—no heavy queries on every dashboard load.</p>
-                </div>
-                <div class="efficiency-card animate-slide-up-delay-2">
-                    <h3>Scalability & Ops</h3>
-                    <p>Horizontal scaling with Redis rate limit and optional Kafka for ingestion. DataRetentionJob purges old snapshots. Actuator health, Prometheus-ready. Cost accuracy validated (e.g. ≤10% variance vs AWS) before customer use.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Impact Section -->
-    <section id="impact" class="section impact-section">
+    <!-- Why Effivio (short bullets) -->
+    <section id="why" class="section impact-section">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Why Effivio</h2>
-                <p class="section-subtitle">Visibility, optimization, and control in one place</p>
+                <p class="section-subtitle">Cost planning and FinOps for Kubernetes and cloud. Multi-tenant, consulting-first, executive-ready.</p>
             </div>
-            <div class="impact-grid">
+            <div class="impact-grid why-bullets">
                 <div class="impact-card animate-float">
-                    <div class="impact-number">Unified</div>
-                    <div class="impact-label">K8s + AWS View</div>
-                    <p class="impact-description">Single executive dashboard with combined spend, trends, and breakdown</p>
+                    <div class="impact-icon">📐</div>
+                    <div class="impact-label">Cost planning</div>
+                    <p class="impact-description">Predict scale-out cost and simulate request changes before you deploy.</p>
                 </div>
                 <div class="impact-card animate-float-delay">
-                    <div class="impact-number">Rule-Based</div>
-                    <div class="impact-label">Recommendations</div>
-                    <p class="impact-description">Right-sizing, idle/zombie detection, unused PVCs with estimated savings</p>
+                    <div class="impact-icon">👥</div>
+                    <div class="impact-label">Consulting-first</div>
+                    <p class="impact-description">Per-client cost, chargeback, margin %, and savings realized.</p>
                 </div>
                 <div class="impact-card animate-float-delay-2">
-                    <div class="impact-number">Budget & Anomaly</div>
-                    <div class="impact-label">Alerts</div>
-                    <p class="impact-description">70%/90% budget alerts and statistical anomaly detection, email + Slack</p>
+                    <div class="impact-icon">☁️</div>
+                    <div class="impact-label">Kubernetes + cloud in one place</div>
+                    <p class="impact-description">K8s and AWS (and more) in one dashboard and story.</p>
                 </div>
                 <div class="impact-card animate-float-delay-3">
-                    <div class="impact-number">Multi-Tenant</div>
-                    <div class="impact-label">RBAC & Audit</div>
-                    <p class="impact-description">Tenant isolation, SUPER_ADMIN / TENANT_ADMIN / TENANT_VIEWER, full audit trail</p>
+                    <div class="impact-icon">🏢</div>
+                    <div class="impact-label">Multi-tenant</div>
+                    <p class="impact-description">One platform for many clients; no spreadsheets.</p>
+                </div>
+                <div class="impact-card animate-float">
+                    <div class="impact-icon">✓</div>
+                    <div class="impact-label">Savings you can prove</div>
+                    <p class="impact-description">Recommendations → Applied → Savings realized; governance and waste %.</p>
+                </div>
+                <div class="impact-card animate-float-delay">
+                    <div class="impact-icon">🔧</div>
+                    <div class="impact-label">Self-host or SaaS</div>
+                    <p class="impact-description">You control data; batteries-included backend, frontend, and agent.</p>
                 </div>
             </div>
         </div>
@@ -263,13 +274,13 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Our Customers</h2>
-                <p class="section-subtitle">Trusted by IT and consulting organizations</p>
+                <p class="section-subtitle">Consulting firms, MSPs, and delivery teams</p>
             </div>
             <div class="coming-soon-container">
                 <div class="coming-soon-card animate-pulse">
                     <div class="coming-soon-icon">◉</div>
                     <h3>Coming Soon</h3>
-                    <p>We're working with teams to bring Kubernetes and cloud cost clarity to their operations. Stay tuned for case studies and early access.</p>
+                    <p>We're working with teams to bring cost planning and FinOps clarity to their operations. Stay tuned for case studies and early access.</p>
                     <div class="coming-soon-badge">Early Access Available</div>
                 </div>
             </div>
@@ -285,7 +296,7 @@
                         <span class="logo-icon">◉</span>
                         <span class="logo-text">Effivio</span>
                     </div>
-                    <p>Kubernetes & Cloud Cost Optimization — cost, efficiency, and infrastructure clarity.</p>
+                    <p>Cost planning and FinOps for Kubernetes and cloud. Multi-tenant, consulting-first, executive-ready.</p>
                     <p class="footer-founder">Founded by Dhanush S</p>
                     <div class="footer-social">
                         <a href="https://www.linkedin.com/in/incident-ops/" target="_blank" rel="noopener noreferrer" class="footer-social-link" title="Company LinkedIn">💼 Follow us on LinkedIn</a>
@@ -294,10 +305,10 @@
                 <div class="footer-links">
                     <div class="footer-column">
                         <h4>Product</h4>
-                        <a href="#about">About</a>
-                        <a href="#features">Features</a>
-                        <a href="#efficiency">Efficiency</a>
-                        <a href="#impact">Impact</a>
+                        <a href="#built">What we built</a>
+                        <a href="#support">What we support</a>
+                        <a href="#roadmap">Roadmap</a>
+                        <a href="#why">Why Effivio</a>
                     </div>
                     <div class="footer-column">
                         <h4>Resources</h4>
@@ -310,7 +321,7 @@
                         <a href="https://www.linkedin.com/in/incident-ops/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                         <a href="#customers">Customers</a>
                         <a href="#">Contact</a>
-                        <a href="#">Support</a>
+                        <a href="#">Pricing</a>
                     </div>
                 </div>
             </div>
