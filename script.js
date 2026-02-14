@@ -29,7 +29,7 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observe all animated elements
 document.addEventListener('DOMContentLoaded', () => {
-    const animatedElements = document.querySelectorAll('.about-card, .feature-card, .impact-card, .table-card, .coming-soon-card, .founder-card');
+    const animatedElements = document.querySelectorAll('.about-card, .feature-card, .impact-card, .efficiency-card, .table-card, .coming-soon-card');
     
     animatedElements.forEach(el => {
         el.style.opacity = '0';

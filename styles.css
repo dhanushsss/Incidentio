@@ -24,7 +24,7 @@
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     color: var(--text-primary);
     background-color: var(--bg-primary);
     line-height: 1.6;
@@ -71,7 +71,15 @@ body {
 }
 
 .logo-icon {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
+    color: var(--primary-color);
+}
+
+.logo-tag {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-left: 0.25rem;
 }
 
 .nav-links {
@@ -175,6 +183,19 @@ body {
     to {
         transform: rotate(360deg);
     }
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    background: rgba(99, 102, 241, 0.12);
+    color: var(--primary-color);
+    border-radius: 2rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    margin-bottom: 1.25rem;
+    border: 1px solid rgba(99, 102, 241, 0.25);
 }
 
 .hero-content {
@@ -309,9 +330,51 @@ body {
     line-height: 1.7;
 }
 
-/* What We Do Section */
+/* What We Do / Features Section */
 .what-we-do-section {
     background: white;
+}
+
+/* Security Section */
+.security-section {
+    background: var(--bg-secondary);
+}
+
+/* Efficiency Section */
+.efficiency-section {
+    background: white;
+}
+
+.efficiency-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.efficiency-card {
+    background: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.efficiency-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-lg);
+}
+
+.efficiency-card h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.efficiency-card p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    font-size: 0.95rem;
 }
 
 .features-grid {
@@ -919,9 +982,19 @@ body {
     margin-bottom: 1rem;
 }
 
+.footer-brand .logo-tag {
+    color: rgba(255, 255, 255, 0.7);
+}
+
 .footer-brand p {
     color: rgba(255, 255, 255, 0.7);
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.footer-founder {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 1rem !important;
 }
 
 .footer-social {
