@@ -27,6 +27,7 @@
                     <a href="#problem">The Problem</a>
                     <a href="#how-it-works">How It Works</a>
                     <a href="#differentiator">Why Zerqis</a>
+                    <a href="#ai-security">AI Security</a>
                     <a href="#features">Features</a>
                     <a href="#integrations">Integrations</a>
                     <a href="#architecture">Architecture</a>
@@ -153,6 +154,82 @@
                         <tr><td>Compliance audit logs</td><td><span class="feature-icon feature-limited">Limited</span></td><td class="col-zerqis"><span class="feature-icon feature-yes">✓</span></td></tr>
                     </tbody>
                 </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Security Intelligence Section -->
+    <section id="ai-security" class="section ai-security-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">🧠 AI Security Intelligence</h2>
+                <p class="section-subtitle">Understand the Risk Instantly</p>
+                <p class="ai-security-lead">Detect leaked secrets and use AI to understand and fix them. Zerqis doesn’t just detect leaked credentials — it uses AI to explain the security impact and recommend fixes.</p>
+            </div>
+            <p class="ai-security-when">When a secret is exposed, Zerqis analyzes:</p>
+            <ul class="ai-security-analyzes">
+                <li>what systems the credential can access</li>
+                <li>what resources are at risk</li>
+                <li>what attackers could potentially do</li>
+                <li>how to remediate the issue safely</li>
+            </ul>
+            <p class="ai-security-cta">Security teams can understand the threat in seconds instead of hours.</p>
+
+            <div class="ai-cards">
+                <div class="ai-card">
+                    <div class="ai-card-icon">🧠</div>
+                    <h3 class="ai-card-title">AI Security Explanation</h3>
+                    <p class="ai-card-desc">When a secret is detected, Zerqis automatically generates a clear security analysis.</p>
+                    <div class="ai-card-example">
+                        <p class="ai-card-example-label">Example:</p>
+                        <p><strong>Secret Detected:</strong> AWS_ACCESS_KEY<br><strong>Service:</strong> payment-service<br><strong>Environment:</strong> production</p>
+                        <p><strong>AI Analysis:</strong><br>This key belongs to IAM user "payments-prod".</p>
+                        <p><strong>Permissions include:</strong></p>
+                        <ul>
+                            <li>S3 access to payment-logs bucket</li>
+                            <li>DynamoDB table transactions</li>
+                            <li>Lambda function invoice-generator</li>
+                        </ul>
+                        <p><strong>Potential Impact:</strong><br>An attacker could access transaction logs and invoke internal Lambda functions.</p>
+                        <p><strong>Recommended Action:</strong><br>Rotate the key immediately and update the payment-service environment variables.</p>
+                    </div>
+                </div>
+                <div class="ai-card">
+                    <div class="ai-card-icon">🔗</div>
+                    <h3 class="ai-card-title">Secret Dependency Graph</h3>
+                    <p class="ai-card-desc">Zerqis maps how secrets are used across services.</p>
+                    <p class="ai-card-list-label">The platform shows:</p>
+                    <ul class="ai-card-list">
+                        <li>which services use the credential</li>
+                        <li>where the secret appears in logs or configs</li>
+                        <li>which cloud resources it can access</li>
+                    </ul>
+                    <p class="ai-card-question">This helps teams answer a critical question: <strong>"What will break if we rotate this secret?"</strong></p>
+                </div>
+                <div class="ai-card">
+                    <div class="ai-card-icon">⚡</div>
+                    <h3 class="ai-card-title">AI Remediation Suggestions</h3>
+                    <p class="ai-card-desc">Zerqis suggests the safest remediation steps.</p>
+                    <p class="ai-card-list-label">Examples include:</p>
+                    <ul class="ai-card-list">
+                        <li>rotate AWS access keys</li>
+                        <li>update Kubernetes secrets</li>
+                        <li>restart affected services</li>
+                        <li>revoke compromised tokens</li>
+                    </ul>
+                    <p class="ai-card-cta">Security engineers can fix exposures directly from the dashboard.</p>
+                </div>
+            </div>
+
+            <div class="ai-why-block">
+                <h3 class="ai-why-title">Why AI Matters for Security</h3>
+                <p class="ai-why-lead">Most tools only detect secrets. Zerqis goes further by helping teams:</p>
+                <ul class="ai-why-list">
+                    <li>understand the real impact</li>
+                    <li>prioritize high-risk exposures</li>
+                    <li>remediate issues faster</li>
+                </ul>
+                <p class="ai-why-cta">This turns secret detection into actionable security intelligence.</p>
             </div>
         </div>
     </section>
@@ -390,6 +467,7 @@
                         <a href="#problem">The Problem</a>
                         <a href="#how-it-works">How It Works</a>
                         <a href="#differentiator">Why Zerqis</a>
+                        <a href="#ai-security">AI Security</a>
                         <a href="#features">Features</a>
                         <a href="#integrations">Integrations</a>
                         <a href="#architecture">Architecture</a>
