@@ -497,6 +497,182 @@ body {
     line-height: 1.6;
 }
 
+/* Comparison Section */
+.comparison-section {
+    background: var(--bg-secondary);
+}
+
+.comparison-wrapper {
+    margin-top: 2rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border-color);
+    background: var(--bg-primary);
+}
+
+.comparison-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.comparison-section .comparison-table {
+    width: 100%;
+    min-width: 720px;
+    margin: 0;
+    border-collapse: collapse;
+    font-size: 0.9375rem;
+}
+
+.comparison-section .comparison-table th,
+.comparison-section .comparison-table td {
+    padding: 1rem 1.25rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    vertical-align: middle;
+}
+
+.comparison-section .comparison-table thead th {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.comparison-section .comparison-table .col-product {
+    text-align: left;
+    min-width: 200px;
+    position: sticky;
+    left: 0;
+    background: inherit;
+    z-index: 1;
+}
+
+.comparison-section .comparison-table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.comparison-section .comparison-table tbody tr:hover {
+    background: var(--bg-secondary);
+}
+
+.comparison-section .comparison-table .comparison-row-recommended {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(139, 92, 246, 0.06) 100%);
+    border-left: 3px solid var(--primary-color);
+}
+
+.comparison-section .comparison-table .comparison-row-recommended:hover {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(139, 92, 246, 0.1) 100%);
+}
+
+.comparison-section .comparison-table .comparison-row-recommended .col-product {
+    background: linear-gradient(90deg, rgba(99, 102, 241, 0.08) 0%, transparent 100%);
+}
+
+.comparison-section .comparison-table .cell-product {
+    background: inherit;
+}
+
+.product-cell-inner {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.product-logo,
+.product-logo-img {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+.product-logo-zerqis {
+    font-size: 1.5rem;
+}
+
+.product-logo-fallback {
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    border-radius: 6px;
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+    font-weight: 700;
+    font-size: 0.875rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-name-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+}
+
+.comparison-section .comparison-table .product-name {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.comparison-badge {
+    display: inline-block;
+    padding: 0.25rem 0.6rem;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    border-radius: 9999px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+
+.feature-icon.feature-yes {
+    color: #059669;
+    font-weight: bold;
+    font-size: 1.125rem;
+}
+
+.feature-icon.feature-no {
+    color: var(--text-secondary);
+    opacity: 0.6;
+    font-size: 1rem;
+}
+
+.feature-icon.feature-limited {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    padding: 0.2rem 0.4rem;
+    background: var(--bg-tertiary);
+    border-radius: 0.25rem;
+}
+
+.comparison-legend {
+    margin-top: 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.comparison-legend .legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.comparison-legend .feature-limited {
+    padding: 0.1rem 0.35rem;
+}
+
 .comparison-table {
     margin-top: 3rem;
 }
@@ -1389,6 +1565,26 @@ body {
     .coming-soon-card {
         padding: 2.5rem 1.5rem;
         margin: 0 1rem;
+    }
+
+    .comparison-section .comparison-table th,
+    .comparison-section .comparison-table td {
+        padding: 0.75rem 0.875rem;
+        font-size: 0.875rem;
+    }
+
+    .comparison-section .comparison-table .col-product {
+        min-width: 160px;
+    }
+
+    .comparison-badge {
+        font-size: 0.65rem;
+        padding: 0.2rem 0.5rem;
+    }
+
+    .comparison-legend {
+        flex-direction: column;
+        gap: 0.75rem;
     }
 
     .confetti-container {

@@ -29,6 +29,7 @@
                     <a href="#security">Security</a>
                     <a href="#efficiency">Architecture</a>
                     <a href="#impact">Impact</a>
+                    <a href="#compare">Compare</a>
                     <a href="#customers">Customers</a>
                 </div>
             </div>
@@ -45,8 +46,8 @@
                     <span class="gradient-text">Logs, CI/CD &amp; Git</span>
                 </h1>
                 <p class="hero-subtitle animate-fade-in-delay">
-                    Central inventory, risk scoring, Slack and webhook alerts, and secret rotation. 
-                    Get from sign-up to detecting exposures quickly—data isolated per organization.
+                    Central inventory, risk scoring, <strong>blast radius analysis</strong>, and automated rotation. 
+                    Designed to support <strong>50+ tenants from day one</strong> with full multi-tenant isolation.
                 </p>
                 <div class="hero-buttons animate-fade-in-delay-2">
                     <a href="#features" class="btn btn-primary">See Features</a>
@@ -82,8 +83,13 @@
                 </div>
                 <div class="about-card animate-slide-up-delay-3">
                     <div class="card-icon">🔄</div>
-                    <h3>Support Rotation</h3>
-                    <p>Rotate compromised secrets via API. Pluggable rotators with AWS implementation; trigger rotation from the dashboard or automation.</p>
+                    <h3>Automated Rotation</h3>
+                    <p>Pluggable SecretRotator (AWS IAM, Vault stub): trigger → disable old → create new → store event. Trigger via API or dashboard.</p>
+                </div>
+                <div class="about-card animate-slide-up-delay-3">
+                    <div class="card-icon">💥</div>
+                    <h3>Blast Radius Analysis</h3>
+                    <p>For exposed secrets (e.g. AWS_ACCESS_KEY), answer <em>what can this secret access?</em> — IAM user, permissions, affected resources (S3, DynamoDB, Lambda); dashboard and API.</p>
                 </div>
             </div>
         </div>
@@ -104,41 +110,41 @@
                     </div>
                     <ul class="feature-list">
                         <li><code>POST /api/v1/logs</code> with <code>X-API-Key</code>; JSON: serviceName, environment, logMessage</li>
-                        <li>Logs streamed to Kafka; processed asynchronously; 202 Accepted</li>
-                        <li>Onboarding page with sample log; Integration Guide (cURL, Node.js, Python); optional Log Agent for Docker/Kubernetes</li>
+                        <li>Logs streamed via Kafka; 202 Accepted; optional Fluent Bit, Logstash, or Log Agent (Docker/Kubernetes)</li>
+                        <li>Onboarding + Integration Guide (cURL, Node.js, Python); no credit card for standard trial</li>
                     </ul>
                 </div>
                 <div class="feature-card animate-scale-in-delay">
                     <div class="feature-header">
                         <span class="feature-icon">🔐</span>
-                        <h3>Secret Detection</h3>
+                        <h3>Runtime Secret Detection</h3>
                     </div>
                     <ul class="feature-list">
                         <li>Regex and rule-based scanning: AWS keys, JWT, Stripe, postgres://, password=, and more</li>
-                        <li>Git webhook: GitHub and GitLab push events; scan commit content; same detection rules</li>
-                        <li>Cloud discovery (optional): AWS IAM keys, Kubernetes Secret resources via GET /api/v1/secrets/discovered</li>
+                        <li>Git webhook: GitHub and GitLab push events; scan commit content; same rules; produce to Kafka</li>
+                        <li>Cloud discovery (optional): AWS IAM keys, Kubernetes Secret resources — GET /api/v1/secrets/discovered</li>
                     </ul>
                 </div>
                 <div class="feature-card animate-scale-in-delay-2">
                     <div class="feature-header">
-                        <span class="feature-icon">📊</span>
-                        <h3>Dashboard &amp; Risk</h3>
+                        <span class="feature-icon">💥</span>
+                        <h3>Blast Radius &amp; Risk</h3>
                     </div>
                     <ul class="feature-list">
-                        <li>Overview: total secrets, exposures, risk score; Secret Inventory; Exposure Events; Security Risk breakdown</li>
-                        <li>Usage: logs processed, secrets detected, exposures by service; risk trend</li>
-                        <li>Risk score by production exposure, secret type, frequency; prioritize remediation</li>
+                        <li><strong>Blast radius</strong>: per exposure — what can this secret access? IAM user, permissions, affected resource types (S3, DynamoDB, Lambda); dashboard and <code>GET /api/v1/blast-radius</code>, <code>/api/v1/exposures/{id}/blast-radius</code></li>
+                        <li>Risk scoring engine: overall score and level from production exposures, secret sensitivity, frequency, unique secrets</li>
+                        <li>Dashboard: Overview, Secret Inventory, Exposure Events, Blast Radius (per exposure), Rotations, Risk, Usage</li>
                     </ul>
                 </div>
                 <div class="feature-card animate-scale-in-delay-3">
                     <div class="feature-header">
-                        <span class="feature-icon">🔑</span>
-                        <h3>API Keys &amp; Onboarding</h3>
+                        <span class="feature-icon">📋</span>
+                        <h3>Inventory &amp; Alerting</h3>
                     </div>
                     <ul class="feature-list">
-                        <li>Create/revoke API keys in dashboard (Organization → API Keys); raw key shown once; use in X-API-Key for ingestion</li>
-                        <li>GET /api/v1/onboarding: steps + curl/nodejs/python examples; dashboard Onboarding and Integration Guide</li>
-                        <li>No credit card for standard SaaS trial; provide email, password, display name, optional org name</li>
+                        <li>Track Secret, SecretExposure, RotationEvent by tenant; firstSeen, lastSeen, exposure count</li>
+                        <li>Alerting: Slack webhook, generic webhook, SIEM-style event forwarding; severity LOW/MEDIUM/HIGH/CRITICAL</li>
+                        <li>API keys: POST/GET/DELETE /api/api-keys; 32-byte keys, hash stored; X-API-Key for POST /api/logs</li>
                     </ul>
                 </div>
             </div>
@@ -172,8 +178,8 @@
                     </div>
                     <ul class="feature-list">
                         <li>All data scoped by tenantId: User, Secret, SecretExposure, RotationEvent, ApiKey</li>
-                        <li>TenantContext from JWT or X-API-Key; gateway resolves and sets X-Tenant-Id</li>
-                        <li>Only users and API keys belonging to your org can see or send data for your tenant</li>
+                        <li>Designed to support <strong>50+ tenants from day one</strong> with full isolation</li>
+                        <li>TenantContext from JWT or X-API-Key; only your org’s users and keys see your data</li>
                     </ul>
                 </div>
                 <div class="feature-card animate-scale-in-delay-2">
@@ -193,9 +199,9 @@
                         <h3>Alerts &amp; Rotation API</h3>
                     </div>
                     <ul class="feature-list">
-                        <li>Slack webhook and generic webhook; set SLACK_WEBHOOK_URL / ALERT_WEBHOOK_URL</li>
-                        <li>POST /api/v1/rotations/trigger: secretId, secretType, oldIdentifier (e.g. AWS key ID); Rotation Service runs rotator (e.g. AWS)</li>
-                        <li>OpenAPI/Swagger at /swagger-ui.html and /v3/api-docs per service</li>
+                        <li>Slack and generic webhook; SIEM-style event forwarding; severity LOW/MEDIUM/HIGH/CRITICAL</li>
+                        <li>POST /api/v1/rotations/trigger: secretId, secretType, oldIdentifier; rotator disables old, creates new, stores event</li>
+                        <li>Swagger UI at /swagger-ui.html, OpenAPI at /v3/api-docs per service</li>
                     </ul>
                 </div>
             </div>
@@ -216,7 +222,7 @@
                 </div>
                 <div class="efficiency-card animate-slide-up-delay">
                     <h3>Services</h3>
-                    <p>API Gateway (8080), Auth (8081), Ingestion (8082), Detection Engine (8083), Inventory (8084), Rotation (8085), Alert (8086), Git Scanner (8087), Cloud Discovery (8088). React dashboard (Vite + TypeScript) talks to gateway; JWT and API key resolve to tenant.</p>
+                    <p>API Gateway (8080), Auth (8081), Ingestion (8082), Detection Engine (8083), Inventory (8084), Rotation (8085), Alert (8086), Git Scanner (8087), Cloud Discovery (8088), <strong>Secret Graph (blast radius)</strong>. React dashboard (Vite + TypeScript) talks to gateway; JWT and API key resolve to tenant.</p>
                 </div>
                 <div class="efficiency-card animate-slide-up-delay-2">
                     <h3>Observability</h3>
@@ -235,26 +241,156 @@
             </div>
             <div class="impact-grid">
                 <div class="impact-card animate-float">
-                    <div class="impact-number">Fast</div>
-                    <div class="impact-label">Onboarding</div>
-                    <p class="impact-description">Sign up → Create API key → Send logs → Verify detection in minutes</p>
+                    <div class="impact-number">Blast Radius</div>
+                    <div class="impact-label">What Can This Secret Access?</div>
+                    <p class="impact-description">IAM user, permissions, affected resources (S3, DynamoDB, Lambda) per exposure—dashboard and API</p>
                 </div>
                 <div class="impact-card animate-float-delay">
-                    <div class="impact-number">Central</div>
-                    <div class="impact-label">Inventory &amp; Risk</div>
-                    <p class="impact-description">One place for secrets, exposures, rotations, and risk score</p>
+                    <div class="impact-number">50+ Tenants</div>
+                    <div class="impact-label">From Day One</div>
+                    <p class="impact-description">Multi-tenant SaaS with full isolation; all data scoped by tenantId; built to scale</p>
                 </div>
                 <div class="impact-card animate-float-delay-2">
-                    <div class="impact-number">Alerts</div>
-                    <div class="impact-label">Slack &amp; Webhook</div>
-                    <p class="impact-description">Get notified when exposures are found; formatted by service, env, severity</p>
+                    <div class="impact-number">Risk &amp; Alerts</div>
+                    <div class="impact-label">Score + SIEM</div>
+                    <p class="impact-description">Risk from production exposure, sensitivity, frequency; Slack, webhook, SIEM-style forwarding; severity levels</p>
                 </div>
                 <div class="impact-card animate-float-delay-3">
-                    <div class="impact-number">Multi-Tenant</div>
-                    <div class="impact-label">SaaS Ready</div>
-                    <p class="impact-description">Tenant-scoped data; JWT and API key; RBAC; audit and Prometheus metrics</p>
+                    <div class="impact-number">Rotate</div>
+                    <div class="impact-label">Automated</div>
+                    <p class="impact-description">Pluggable rotators (AWS IAM, Vault); trigger → disable old → create new → store event</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section id="compare" class="section comparison-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Compare Zerqis</h2>
+                <p class="section-subtitle">Full secret exposure intelligence vs. alternatives</p>
+            </div>
+            <div class="comparison-wrapper">
+                <div class="comparison-table-wrap">
+                    <table class="comparison-table" role="grid">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="col-product">Product</th>
+                                <th scope="col">Secret Detection</th>
+                                <th scope="col">CI/CD Scanning</th>
+                                <th scope="col">Log Scanning</th>
+                                <th scope="col">Exposure Inventory</th>
+                                <th scope="col">Blast Radius Analysis</th>
+                                <th scope="col">Risk Scoring</th>
+                                <th scope="col">Automated Rotation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="comparison-row comparison-row-recommended">
+                                <td class="cell-product">
+                                    <div class="product-cell-inner">
+                                        <span class="product-logo product-logo-zerqis" aria-hidden="true">🛡️</span>
+                                        <div class="product-name-wrap">
+                                            <span class="product-name">Zerqis</span>
+                                            <span class="comparison-badge">Full Secret Exposure Intelligence</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td><span class="feature-icon feature-yes" aria-label="Yes">✓</span></td>
+                                <td><span class="feature-icon feature-yes" aria-label="Yes">✓</span></td>
+                                <td><span class="feature-icon feature-yes" aria-label="Yes">✓</span></td>
+                                <td><span class="feature-icon feature-yes" aria-label="Yes">✓</span></td>
+                                <td><span class="feature-icon feature-yes" aria-label="Yes">✓</span></td>
+                                <td><span class="feature-icon feature-yes" aria-label="Yes">✓</span></td>
+                                <td><span class="feature-icon feature-yes" aria-label="Yes">✓</span></td>
+                            </tr>
+                            <tr class="comparison-row">
+                                <td class="cell-product">
+                                    <div class="product-cell-inner">
+                                        <img src="https://cdn.simpleicons.org/gitguardian/000000" alt="" class="product-logo-img" width="28" height="28" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                                        <span class="product-logo product-logo-fallback" aria-hidden="true" style="display: none;">G</span>
+                                        <span class="product-name">GitGuardian Platform</span>
+                                    </div>
+                                </td>
+                                <td><span class="feature-icon feature-yes" aria-label="Yes">✓</span></td>
+                                <td><span class="feature-icon feature-yes" aria-label="Yes">✓</span></td>
+                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
+                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
+                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
+                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
+                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
+                            </tr>
+                            <tr class="comparison-row">
+                                <td class="cell-product">
+                                    <div class="product-cell-inner">
+                                        <img src="https://cdn.simpleicons.org/trufflesecurity/000000" alt="" class="product-logo-img" width="28" height="28" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                                        <span class="product-logo product-logo-fallback" aria-hidden="true" style="display: none;">T</span>
+                                        <span class="product-name">TruffleHog</span>
+                                    </div>
+                                </td>
+                                <td><span class="feature-icon feature-yes" aria-label="Yes">✓</span></td>
+                                <td><span class="feature-icon feature-yes" aria-label="Yes">✓</span></td>
+                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
+                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
+                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
+                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
+                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
+                            </tr>
+                            <tr class="comparison-row">
+                                <td class="cell-product">
+                                    <div class="product-cell-inner">
+                                        <img src="https://cdn.simpleicons.org/github/000000" alt="" class="product-logo-img" width="28" height="28">
+                                        <span class="product-name">GitHub Advanced Security</span>
+                                    </div>
+                                </td>
+                                <td><span class="feature-icon feature-yes" aria-label="Yes">✓</span></td>
+                                <td><span class="feature-icon feature-yes" aria-label="Yes">✓</span></td>
+                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
+                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
+                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
+                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
+                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
+                            </tr>
+                            <tr class="comparison-row">
+                                <td class="cell-product">
+                                    <div class="product-cell-inner">
+                                        <img src="https://cdn.simpleicons.org/hashicorp/000000" alt="" class="product-logo-img" width="28" height="28">
+                                        <span class="product-name">HashiCorp Vault</span>
+                                    </div>
+                                </td>
+                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
+                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
+                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
+                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
+                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
+                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
+                                <td><span class="feature-icon feature-yes" aria-label="Yes">✓</span></td>
+                            </tr>
+                            <tr class="comparison-row">
+                                <td class="cell-product">
+                                    <div class="product-cell-inner">
+                                        <img src="https://cdn.simpleicons.org/snyk/000000" alt="" class="product-logo-img" width="28" height="28">
+                                        <span class="product-name">Snyk Secrets</span>
+                                    </div>
+                                </td>
+                                <td><span class="feature-icon feature-yes" aria-label="Yes">✓</span></td>
+                                <td><span class="feature-icon feature-yes" aria-label="Yes">✓</span></td>
+                                <td><span class="feature-icon feature-limited" aria-label="Limited">Limited</span></td>
+                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
+                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
+                                <td><span class="feature-icon feature-limited" aria-label="Limited">Limited</span></td>
+                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <p class="comparison-legend">
+                <span class="legend-item"><span class="feature-icon feature-yes">✓</span> Supported</span>
+                <span class="legend-item"><span class="feature-icon feature-no">✗</span> Not supported</span>
+                <span class="legend-item"><span class="feature-limited">Limited</span> Partially supported</span>
+            </p>
         </div>
     </section>
 
@@ -285,7 +421,7 @@
                         <span class="logo-icon">🛡️</span>
                         <span class="logo-text">Zerqis</span>
                     </div>
-                    <p>Detect exposed secrets in logs, CI/CD, and Git. Track, alert, rotate. Founded by Dhanush S.</p>
+                    <p>Detect exposed secrets in logs, CI/CD, and Git; blast radius analysis; automated rotation. 50+ tenants from day one. Founded by Dhanush S.</p>
                     <p class="footer-founder">Founded by Dhanush S</p>
                     <div class="footer-social">
                         <a href="https://www.linkedin.com/in/incident-ops/" target="_blank" rel="noopener noreferrer" class="footer-social-link" title="Company LinkedIn">💼 Follow us on LinkedIn</a>
@@ -298,6 +434,7 @@
                         <a href="#features">Features</a>
                         <a href="#efficiency">Architecture</a>
                         <a href="#impact">Impact</a>
+                        <a href="#compare">Compare</a>
                     </div>
                     <div class="footer-column">
                         <h4>Resources</h4>
