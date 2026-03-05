@@ -518,7 +518,6 @@ body {
 
 .comparison-section .comparison-table {
     width: 100%;
-    min-width: 720px;
     margin: 0;
     border-collapse: collapse;
     font-size: 0.9375rem;
@@ -527,7 +526,6 @@ body {
 .comparison-section .comparison-table th,
 .comparison-section .comparison-table td {
     padding: 1rem 1.25rem;
-    text-align: center;
     border-bottom: 1px solid var(--border-color);
     vertical-align: middle;
 }
@@ -536,16 +534,6 @@ body {
     background: var(--bg-tertiary);
     color: var(--text-primary);
     font-weight: 600;
-    white-space: nowrap;
-}
-
-.comparison-section .comparison-table .col-product {
-    text-align: left;
-    min-width: 200px;
-    position: sticky;
-    left: 0;
-    background: inherit;
-    z-index: 1;
 }
 
 .comparison-section .comparison-table tbody tr {
@@ -556,21 +544,40 @@ body {
     background: var(--bg-secondary);
 }
 
-.comparison-section .comparison-table .comparison-row-recommended {
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(139, 92, 246, 0.06) 100%);
-    border-left: 3px solid var(--primary-color);
+/* Competitors table: Company | Product | Focus | Limitation | Zerqis Advantage */
+.comparison-table-competitors {
+    min-width: 680px;
 }
 
-.comparison-section .comparison-table .comparison-row-recommended:hover {
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(139, 92, 246, 0.1) 100%);
+.comparison-section .comparison-table-competitors th,
+.comparison-section .comparison-table-competitors td {
+    text-align: left;
 }
 
-.comparison-section .comparison-table .comparison-row-recommended .col-product {
-    background: linear-gradient(90deg, rgba(99, 102, 241, 0.08) 0%, transparent 100%);
-}
-
-.comparison-section .comparison-table .cell-product {
+.comparison-section .comparison-table-competitors .col-company {
+    min-width: 140px;
+    position: sticky;
+    left: 0;
     background: inherit;
+    z-index: 1;
+}
+
+.comparison-section .comparison-table-competitors .cell-company {
+    background: inherit;
+}
+
+.comparison-section .comparison-table-competitors .col-advantage,
+.comparison-section .comparison-table-competitors .cell-advantage {
+    min-width: 200px;
+    background: rgba(99, 102, 241, 0.06);
+}
+
+.comparison-section .comparison-table-competitors thead .col-advantage {
+    background: rgba(99, 102, 241, 0.12);
+}
+
+.comparison-section .comparison-table-competitors .cell-advantage strong {
+    color: var(--primary-dark);
 }
 
 .product-cell-inner {
@@ -590,8 +597,8 @@ body {
     font-size: 1.25rem;
 }
 
-.product-logo-zerqis {
-    font-size: 1.5rem;
+.product-logo-img {
+    object-fit: contain;
 }
 
 .product-logo-fallback {
@@ -608,28 +615,9 @@ body {
     justify-content: center;
 }
 
-.product-name-wrap {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.35rem;
-}
-
 .comparison-section .comparison-table .product-name {
     font-weight: 600;
     color: var(--text-primary);
-}
-
-.comparison-badge {
-    display: inline-block;
-    padding: 0.25rem 0.6rem;
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-    color: white;
-    border-radius: 9999px;
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    white-space: nowrap;
 }
 
 .feature-icon.feature-yes {
@@ -653,24 +641,96 @@ body {
     border-radius: 0.25rem;
 }
 
-.comparison-legend {
-    margin-top: 1.25rem;
+/* Key Differentiator block */
+.differentiator-block {
+    margin-top: 3rem;
+    padding: 2rem;
+    border-radius: 1rem;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-md);
+}
+
+.differentiator-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1.25rem;
+    text-align: center;
+}
+
+.differentiator-headline {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.5rem;
     justify-content: center;
-    font-size: 0.875rem;
+    align-items: baseline;
+    gap: 1rem 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.differentiator-others {
+    font-size: 1.125rem;
     color: var(--text-secondary);
 }
 
-.comparison-legend .legend-item {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
+.differentiator-zerqis {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-color);
 }
 
-.comparison-legend .feature-limited {
-    padding: 0.1rem 0.35rem;
+.differentiator-table-wrap {
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+}
+
+.differentiator-table {
+    min-width: 320px;
+    margin: 0 auto;
+}
+
+.differentiator-table th,
+.differentiator-table td {
+    padding: 0.75rem 1.25rem;
+}
+
+.differentiator-table th:first-child,
+.differentiator-table td:first-child {
+    text-align: left;
+}
+
+.differentiator-table th.col-zerqis,
+.differentiator-table td.col-zerqis {
+    text-align: center;
+    background: rgba(99, 102, 241, 0.06);
+}
+
+.differentiator-table thead .col-zerqis {
+    background: rgba(99, 102, 241, 0.12);
+    font-weight: 700;
+    color: var(--primary-dark);
+}
+
+.architecture-flow {
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.architecture-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.architecture-pipeline {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    color: var(--text-primary);
 }
 
 .comparison-table {
@@ -1573,18 +1633,29 @@ body {
         font-size: 0.875rem;
     }
 
-    .comparison-section .comparison-table .col-product {
+    .comparison-section .comparison-table-competitors .col-company {
+        min-width: 120px;
+    }
+
+    .comparison-section .comparison-table-competitors .col-advantage,
+    .comparison-section .comparison-table-competitors .cell-advantage {
         min-width: 160px;
     }
 
-    .comparison-badge {
-        font-size: 0.65rem;
-        padding: 0.2rem 0.5rem;
+    .differentiator-block {
+        padding: 1.5rem 1rem;
+        margin-top: 2rem;
     }
 
-    .comparison-legend {
+    .differentiator-headline {
         flex-direction: column;
-        gap: 0.75rem;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .architecture-pipeline {
+        font-size: 0.8rem;
+        word-break: break-all;
     }
 
     .confetti-container {

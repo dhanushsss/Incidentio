@@ -269,128 +269,120 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Compare Zerqis</h2>
-                <p class="section-subtitle">Full secret exposure intelligence vs. alternatives</p>
+                <p class="section-subtitle">How Zerqis stacks up against alternatives</p>
             </div>
+
             <div class="comparison-wrapper">
                 <div class="comparison-table-wrap">
-                    <table class="comparison-table" role="grid">
+                    <table class="comparison-table comparison-table-competitors" role="grid">
                         <thead>
                             <tr>
-                                <th scope="col" class="col-product">Product</th>
-                                <th scope="col">Secret Detection</th>
-                                <th scope="col">CI/CD Scanning</th>
-                                <th scope="col">Log Scanning</th>
-                                <th scope="col">Exposure Inventory</th>
-                                <th scope="col">Blast Radius Analysis</th>
-                                <th scope="col">Risk Scoring</th>
-                                <th scope="col">Automated Rotation</th>
+                                <th scope="col" class="col-company">Company</th>
+                                <th scope="col">Product</th>
+                                <th scope="col">What They Focus On</th>
+                                <th scope="col">Limitation</th>
+                                <th scope="col" class="col-advantage">Zerqis Advantage</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="comparison-row comparison-row-recommended">
-                                <td class="cell-product">
+                            <tr class="comparison-row">
+                                <td class="cell-company">
                                     <div class="product-cell-inner">
-                                        <span class="product-logo product-logo-zerqis" aria-hidden="true">🛡️</span>
-                                        <div class="product-name-wrap">
-                                            <span class="product-name">Zerqis</span>
-                                            <span class="comparison-badge">Full Secret Exposure Intelligence</span>
-                                        </div>
+                                        <img src="https://cdn.simpleicons.org/github/000000" alt="" class="product-logo-img" width="28" height="28">
+                                        <span class="product-name">GitHub</span>
                                     </div>
                                 </td>
-                                <td><span class="feature-icon feature-yes" aria-label="Yes">✓</span></td>
-                                <td><span class="feature-icon feature-yes" aria-label="Yes">✓</span></td>
-                                <td><span class="feature-icon feature-yes" aria-label="Yes">✓</span></td>
-                                <td><span class="feature-icon feature-yes" aria-label="Yes">✓</span></td>
-                                <td><span class="feature-icon feature-yes" aria-label="Yes">✓</span></td>
-                                <td><span class="feature-icon feature-yes" aria-label="Yes">✓</span></td>
-                                <td><span class="feature-icon feature-yes" aria-label="Yes">✓</span></td>
+                                <td>GitHub Secret Scanning</td>
+                                <td>Detect secrets in Git repos</td>
+                                <td>Only Git scanning</td>
+                                <td class="cell-advantage">Zerqis scans <strong>logs, CI/CD, and Git</strong></td>
                             </tr>
                             <tr class="comparison-row">
-                                <td class="cell-product">
+                                <td class="cell-company">
                                     <div class="product-cell-inner">
                                         <img src="https://cdn.simpleicons.org/gitguardian/000000" alt="" class="product-logo-img" width="28" height="28" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                                         <span class="product-logo product-logo-fallback" aria-hidden="true" style="display: none;">G</span>
-                                        <span class="product-name">GitGuardian Platform</span>
+                                        <span class="product-name">GitGuardian</span>
                                     </div>
                                 </td>
-                                <td><span class="feature-icon feature-yes" aria-label="Yes">✓</span></td>
-                                <td><span class="feature-icon feature-yes" aria-label="Yes">✓</span></td>
-                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
-                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
-                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
-                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
-                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
+                                <td>GitGuardian</td>
+                                <td>Git and developer security</td>
+                                <td>Expensive for startups</td>
+                                <td class="cell-advantage">Zerqis designed for <strong>startup DevSecOps</strong></td>
                             </tr>
                             <tr class="comparison-row">
-                                <td class="cell-product">
-                                    <div class="product-cell-inner">
-                                        <img src="https://cdn.simpleicons.org/trufflesecurity/000000" alt="" class="product-logo-img" width="28" height="28" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
-                                        <span class="product-logo product-logo-fallback" aria-hidden="true" style="display: none;">T</span>
-                                        <span class="product-name">TruffleHog</span>
-                                    </div>
-                                </td>
-                                <td><span class="feature-icon feature-yes" aria-label="Yes">✓</span></td>
-                                <td><span class="feature-icon feature-yes" aria-label="Yes">✓</span></td>
-                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
-                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
-                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
-                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
-                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
-                            </tr>
-                            <tr class="comparison-row">
-                                <td class="cell-product">
-                                    <div class="product-cell-inner">
-                                        <img src="https://cdn.simpleicons.org/github/000000" alt="" class="product-logo-img" width="28" height="28">
-                                        <span class="product-name">GitHub Advanced Security</span>
-                                    </div>
-                                </td>
-                                <td><span class="feature-icon feature-yes" aria-label="Yes">✓</span></td>
-                                <td><span class="feature-icon feature-yes" aria-label="Yes">✓</span></td>
-                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
-                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
-                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
-                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
-                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
-                            </tr>
-                            <tr class="comparison-row">
-                                <td class="cell-product">
+                                <td class="cell-company">
                                     <div class="product-cell-inner">
                                         <img src="https://cdn.simpleicons.org/hashicorp/000000" alt="" class="product-logo-img" width="28" height="28">
-                                        <span class="product-name">HashiCorp Vault</span>
+                                        <span class="product-name">HashiCorp</span>
                                     </div>
                                 </td>
-                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
-                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
-                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
-                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
-                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
-                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
-                                <td><span class="feature-icon feature-yes" aria-label="Yes">✓</span></td>
+                                <td>Vault</td>
+                                <td>Secret storage and management</td>
+                                <td>Doesn't detect leaked secrets</td>
+                                <td class="cell-advantage">Zerqis <strong>detects exposed secrets automatically</strong></td>
                             </tr>
                             <tr class="comparison-row">
-                                <td class="cell-product">
+                                <td class="cell-company">
                                     <div class="product-cell-inner">
-                                        <img src="https://cdn.simpleicons.org/snyk/000000" alt="" class="product-logo-img" width="28" height="28">
-                                        <span class="product-name">Snyk Secrets</span>
+                                        <img src="https://cdn.simpleicons.org/wiz/000000" alt="" class="product-logo-img" width="28" height="28" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                                        <span class="product-logo product-logo-fallback" aria-hidden="true" style="display: none;">W</span>
+                                        <span class="product-name">Wiz</span>
                                     </div>
                                 </td>
-                                <td><span class="feature-icon feature-yes" aria-label="Yes">✓</span></td>
-                                <td><span class="feature-icon feature-yes" aria-label="Yes">✓</span></td>
-                                <td><span class="feature-icon feature-limited" aria-label="Limited">Limited</span></td>
-                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
-                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
-                                <td><span class="feature-icon feature-limited" aria-label="Limited">Limited</span></td>
-                                <td><span class="feature-icon feature-no" aria-label="No">✗</span></td>
+                                <td>Wiz Security</td>
+                                <td>Cloud security posture</td>
+                                <td>Complex and expensive</td>
+                                <td class="cell-advantage">Zerqis is <strong>focused and lightweight</strong></td>
+                            </tr>
+                            <tr class="comparison-row">
+                                <td class="cell-company">
+                                    <div class="product-cell-inner">
+                                        <img src="https://cdn.simpleicons.org/datadog/000000" alt="" class="product-logo-img" width="28" height="28">
+                                        <span class="product-name">Datadog</span>
+                                    </div>
+                                </td>
+                                <td>Datadog Security</td>
+                                <td>Observability security alerts</td>
+                                <td>Not specialized for secrets</td>
+                                <td class="cell-advantage">Zerqis focuses <strong>specifically on secret exposure risk</strong></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
-            <p class="comparison-legend">
-                <span class="legend-item"><span class="feature-icon feature-yes">✓</span> Supported</span>
-                <span class="legend-item"><span class="feature-icon feature-no">✗</span> Not supported</span>
-                <span class="legend-item"><span class="feature-limited">Limited</span> Partially supported</span>
-            </p>
+
+            <div class="differentiator-block">
+                <h3 class="differentiator-title">The Key Differentiator</h3>
+                <div class="differentiator-headline">
+                    <p class="differentiator-others">Most tools only detect secrets</p>
+                    <p class="differentiator-zerqis">Zerqis detects + analyzes impact</p>
+                </div>
+                <div class="differentiator-table-wrap">
+                    <table class="comparison-table differentiator-table" role="grid">
+                        <thead>
+                            <tr>
+                                <th scope="col">Feature</th>
+                                <th scope="col">Others</th>
+                                <th scope="col" class="col-zerqis">Zerqis</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Secret detection</td><td><span class="feature-icon feature-yes">✓</span></td><td class="col-zerqis"><span class="feature-icon feature-yes">✓</span></td></tr>
+                            <tr><td>Git scanning</td><td><span class="feature-icon feature-yes">✓</span></td><td class="col-zerqis"><span class="feature-icon feature-yes">✓</span></td></tr>
+                            <tr><td>Log scanning</td><td><span class="feature-icon feature-no">✗</span></td><td class="col-zerqis"><span class="feature-icon feature-yes">✓</span></td></tr>
+                            <tr><td>CI/CD scanning</td><td><span class="feature-icon feature-no">✗</span></td><td class="col-zerqis"><span class="feature-icon feature-yes">✓</span></td></tr>
+                            <tr><td>Blast radius analysis</td><td><span class="feature-icon feature-no">✗</span></td><td class="col-zerqis"><span class="feature-icon feature-yes">✓</span></td></tr>
+                            <tr><td>Secret rotation trigger</td><td><span class="feature-icon feature-no">✗</span></td><td class="col-zerqis"><span class="feature-icon feature-yes">✓</span></td></tr>
+                            <tr><td>Compliance audit logs</td><td><span class="feature-icon feature-limited">Limited</span></td><td class="col-zerqis"><span class="feature-icon feature-yes">✓</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="architecture-flow">
+                    <span class="architecture-label">Architecture</span>
+                    <p class="architecture-pipeline">Logs → Kafka → Detection Engine → Inventory → Alerts → Rotation → Audit log</p>
+                </div>
+            </div>
         </div>
     </section>
 
