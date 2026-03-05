@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zerqis — Detect Exposed Secrets in Logs &amp; CI/CD</title>
+    <title>Zerqis — Detect Leaked Credentials Before Attackers Exploit Them</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,11 +24,12 @@
                     <span></span>
                 </div>
                 <div class="nav-links" id="navLinks">
-                    <a href="#about">About</a>
+                    <a href="#problem">The Problem</a>
+                    <a href="#how-it-works">How It Works</a>
+                    <a href="#differentiator">Why Zerqis</a>
                     <a href="#features">Features</a>
-                    <a href="#security">Security</a>
-                    <a href="#efficiency">Architecture</a>
-                    <a href="#impact">Impact</a>
+                    <a href="#integrations">Integrations</a>
+                    <a href="#architecture">Architecture</a>
                     <a href="#compare">Compare</a>
                     <a href="#customers">Customers</a>
                 </div>
@@ -40,66 +41,128 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <p class="hero-badge">DevSecOps / CloudSecOps</p>
                 <h1 class="hero-title animate-fade-in">
-                    Detect Exposed Secrets in<br>
-                    <span class="gradient-text">Logs, CI/CD &amp; Git</span>
+                    Detect leaked credentials before attackers exploit them.
                 </h1>
                 <p class="hero-subtitle animate-fade-in-delay">
-                    Central inventory, risk scoring, <strong>blast radius analysis</strong>, and automated rotation. 
-                    Designed to support <strong>50+ tenants from day one</strong> with full multi-tenant isolation.
+                    Zerqis finds exposed API keys, tokens, and passwords across logs, CI/CD pipelines, and Git — and shows exactly what they can access.
                 </p>
                 <div class="hero-buttons animate-fade-in-delay-2">
-                    <a href="#features" class="btn btn-primary">See Features</a>
-                    <a href="#efficiency" class="btn btn-secondary">How It Works</a>
+                    <a href="#" class="btn btn-primary">Start Free Trial</a>
+                    <a href="#how-it-works" class="btn btn-secondary">See How It Works</a>
                 </div>
             </div>
         </div>
         <div class="hero-background"></div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="section about-section">
+    <!-- The Problem Section -->
+    <section id="problem" class="section problem-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">What Zerqis Does</h2>
-                <p class="section-subtitle">Detect, track, alert, and rotate—all in one platform</p>
+                <h2 class="section-title">The Problem</h2>
+                <p class="section-subtitle">Secrets leak more often than teams realize.</p>
             </div>
-            <div class="about-content">
-                <div class="about-card animate-slide-up">
-                    <div class="card-icon">🔍</div>
-                    <h3>Detect Secrets</h3>
-                    <p>Scans application logs, CI/CD pipelines, and optionally Git commits and cloud configs for exposed secrets (AWS keys, JWTs, passwords, DB URLs).</p>
+            <div class="problem-content">
+                <p class="problem-lead">Developers accidentally expose credentials in:</p>
+                <ul class="problem-list">
+                    <li>application logs</li>
+                    <li>CI/CD pipelines</li>
+                    <li>Git commits</li>
+                    <li>configuration files</li>
+                </ul>
+                <p class="problem-consequence">Once leaked, attackers can immediately access cloud resources.</p>
+                <p class="problem-gap">Most security tools detect secrets in Git repositories. Very few detect secrets already exposed in runtime systems.</p>
+                <p class="problem-cta"><strong>Zerqis closes that gap.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How Zerqis Works (4-step pipeline) -->
+    <section id="how-it-works" class="section pipeline-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">How Zerqis Works</h2>
+                <p class="section-subtitle">Detect → Analyze → Alert → Fix</p>
+            </div>
+            <div class="pipeline-steps">
+                <div class="pipeline-step animate-slide-up">
+                    <div class="pipeline-step-icon">🔍</div>
+                    <h3>Detect</h3>
+                    <p>Scan logs, CI/CD pipelines, Git commits, and cloud configurations.</p>
                 </div>
-                <div class="about-card animate-slide-up-delay">
-                    <div class="card-icon">📋</div>
-                    <h3>Track in Inventory</h3>
-                    <p>Central secret inventory with risk scoring. Filter by service, environment; see exposures and rotation events in one place.</p>
+                <span class="pipeline-arrow" aria-hidden="true">→</span>
+                <div class="pipeline-step animate-slide-up-delay">
+                    <div class="pipeline-step-icon">📊</div>
+                    <h3>Analyze</h3>
+                    <p>Understand the impact of the leaked credential.</p>
                 </div>
-                <div class="about-card animate-slide-up-delay-2">
-                    <div class="card-icon">🔔</div>
-                    <h3>Alert Your Team</h3>
-                    <p>Slack and generic webhook alerts when exposures are found. Formatted messages: Service, Environment, Secret Type, Severity.</p>
+                <span class="pipeline-arrow" aria-hidden="true">→</span>
+                <div class="pipeline-step animate-slide-up-delay-2">
+                    <div class="pipeline-step-icon">🔔</div>
+                    <h3>Alert</h3>
+                    <p>Notify your team via Slack, webhooks, or SIEM.</p>
                 </div>
-                <div class="about-card animate-slide-up-delay-3">
-                    <div class="card-icon">🔄</div>
-                    <h3>Automated Rotation</h3>
-                    <p>Pluggable SecretRotator (AWS IAM, Vault stub): trigger → disable old → create new → store event. Trigger via API or dashboard.</p>
-                </div>
-                <div class="about-card animate-slide-up-delay-3">
-                    <div class="card-icon">💥</div>
-                    <h3>Blast Radius Analysis</h3>
-                    <p>For exposed secrets (e.g. AWS_ACCESS_KEY), answer <em>what can this secret access?</em> — IAM user, permissions, affected resources (S3, DynamoDB, Lambda); dashboard and API.</p>
+                <span class="pipeline-arrow" aria-hidden="true">→</span>
+                <div class="pipeline-step animate-slide-up-delay-3">
+                    <div class="pipeline-step-icon">🔄</div>
+                    <h3>Fix</h3>
+                    <p>Trigger automated secret rotation to stop further exposure.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
+    <!-- Key Differentiator + Blast Radius -->
+    <section id="differentiator" class="section differentiator-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">The Key Differentiator</h2>
+                <div class="differentiator-headline">
+                    <p class="differentiator-others">Most tools only detect secrets</p>
+                    <p class="differentiator-zerqis">Zerqis detects + analyzes impact</p>
+                </div>
+            </div>
+            <div class="blast-radius-block">
+                <h3 class="blast-radius-title">What Can Attackers Do With This Secret?</h3>
+                <p class="blast-radius-lead">Zerqis analyzes the permissions of exposed credentials and shows exactly what resources they can access.</p>
+                <p class="blast-radius-example">For example:</p>
+                <ul class="blast-radius-list">
+                    <li>IAM user permissions</li>
+                    <li>S3 bucket access</li>
+                    <li>DynamoDB tables</li>
+                    <li>Lambda functions</li>
+                </ul>
+                <p class="blast-radius-cta">That’s a powerful security feature.</p>
+            </div>
+            <div class="differentiator-table-wrap">
+                <table class="comparison-table differentiator-table" role="grid">
+                    <thead>
+                        <tr>
+                            <th scope="col">Feature</th>
+                            <th scope="col">Others</th>
+                            <th scope="col" class="col-zerqis">Zerqis</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Secret detection</td><td><span class="feature-icon feature-yes">✓</span></td><td class="col-zerqis"><span class="feature-icon feature-yes">✓</span></td></tr>
+                        <tr><td>Git scanning</td><td><span class="feature-icon feature-yes">✓</span></td><td class="col-zerqis"><span class="feature-icon feature-yes">✓</span></td></tr>
+                        <tr><td>Log scanning</td><td><span class="feature-icon feature-no">✗</span></td><td class="col-zerqis"><span class="feature-icon feature-yes">✓</span></td></tr>
+                        <tr><td>CI/CD scanning</td><td><span class="feature-icon feature-no">✗</span></td><td class="col-zerqis"><span class="feature-icon feature-yes">✓</span></td></tr>
+                        <tr><td>Blast radius analysis</td><td><span class="feature-icon feature-no">✗</span></td><td class="col-zerqis"><span class="feature-icon feature-yes">✓</span></td></tr>
+                        <tr><td>Secret rotation trigger</td><td><span class="feature-icon feature-no">✗</span></td><td class="col-zerqis"><span class="feature-icon feature-yes">✓</span></td></tr>
+                        <tr><td>Compliance audit logs</td><td><span class="feature-icon feature-limited">Limited</span></td><td class="col-zerqis"><span class="feature-icon feature-yes">✓</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Features Section -->
     <section id="features" class="section what-we-do-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Features</h2>
+                <h2 class="section-title">Product Features</h2>
                 <p class="section-subtitle">Everything you need to get from sign-up to detecting exposures</p>
             </div>
             <div class="features-grid">
@@ -151,116 +214,50 @@
         </div>
     </section>
 
-    <!-- Security & Multi-Tenancy Section -->
-    <section id="security" class="section security-section">
+    <!-- Integrations Section -->
+    <section id="integrations" class="section integrations-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Security &amp; Multi-Tenancy</h2>
-                <p class="section-subtitle">RBAC, tenant isolation, and secure ingestion</p>
+                <h2 class="section-title">Works With Your Existing Stack</h2>
+                <p class="section-subtitle">Integrate with the tools your team already uses</p>
             </div>
-            <div class="features-grid">
-                <div class="feature-card animate-scale-in">
-                    <div class="feature-header">
-                        <span class="feature-icon">👥</span>
-                        <h3>Roles &amp; Access</h3>
-                    </div>
-                    <ul class="feature-list">
-                        <li><strong>ADMIN</strong>: tenant management, system metrics, alert history</li>
-                        <li><strong>SECURITY_ENGINEER</strong>: full access to secrets, exposures, rotations, risk, API keys</li>
-                        <li><strong>VIEWER</strong>: read-only dashboards and reports</li>
-                        <li>JWT for dashboard; API key for log ingestion only—never use the same key for both</li>
-                    </ul>
-                </div>
-                <div class="feature-card animate-scale-in-delay">
-                    <div class="feature-header">
-                        <span class="feature-icon">🏢</span>
-                        <h3>Tenant Isolation</h3>
-                    </div>
-                    <ul class="feature-list">
-                        <li>All data scoped by tenantId: User, Secret, SecretExposure, RotationEvent, ApiKey</li>
-                        <li>Designed to support <strong>50+ tenants from day one</strong> with full isolation</li>
-                        <li>TenantContext from JWT or X-API-Key; only your org’s users and keys see your data</li>
-                    </ul>
-                </div>
-                <div class="feature-card animate-scale-in-delay-2">
-                    <div class="feature-header">
-                        <span class="feature-icon">🔒</span>
-                        <h3>Auth &amp; Gateway</h3>
-                    </div>
-                    <ul class="feature-list">
-                        <li>Register: email, password, displayName; Login returns accessToken (Bearer); use for all dashboard APIs</li>
-                        <li>Gateway: JWT validation, rate limiting, security headers (HSTS, X-Frame-Options, CSP, etc.)</li>
-                        <li>API keys: 32-byte secure keys; only hash stored; never log raw secrets; audit logging</li>
-                    </ul>
-                </div>
-                <div class="feature-card animate-scale-in-delay-3">
-                    <div class="feature-header">
-                        <span class="feature-icon">📡</span>
-                        <h3>Alerts &amp; Rotation API</h3>
-                    </div>
-                    <ul class="feature-list">
-                        <li>Slack and generic webhook; SIEM-style event forwarding; severity LOW/MEDIUM/HIGH/CRITICAL</li>
-                        <li>POST /api/v1/rotations/trigger: secretId, secretType, oldIdentifier; rotator disables old, creates new, stores event</li>
-                        <li>Swagger UI at /swagger-ui.html, OpenAPI at /v3/api-docs per service</li>
-                    </ul>
-                </div>
+            <div class="integrations-grid">
+                <span class="integration-item">GitHub</span>
+                <span class="integration-item">GitLab</span>
+                <span class="integration-item">AWS</span>
+                <span class="integration-item">Kubernetes</span>
+                <span class="integration-item">Slack</span>
+                <span class="integration-item">PagerDuty</span>
+                <span class="integration-item">Splunk</span>
+                <span class="integration-item">Elastic</span>
+                <span class="integration-item">Fluent Bit</span>
+                <span class="integration-item">Logstash</span>
             </div>
         </div>
     </section>
 
-    <!-- Architecture / Efficiency Section -->
-    <section id="efficiency" class="section efficiency-section">
+    <!-- Architecture Section -->
+    <section id="architecture" class="section architecture-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">How It Works</h2>
-                <p class="section-subtitle">Architecture and data flow</p>
+                <h2 class="section-title">Architecture</h2>
+                <p class="section-subtitle">Simple pipeline from ingestion to remediation</p>
             </div>
-            <div class="efficiency-grid">
-                <div class="efficiency-card animate-slide-up">
-                    <h3>Ingestion → Detection</h3>
-                    <p>Client sends POST /api/v1/logs with X-API-Key. Gateway forwards to Ingestion Service; logs published to Kafka topic <code>logs-ingestion</code>. Detection Engine consumes logs, runs regex rules, creates/updates Secret and SecretExposure in PostgreSQL, publishes to <code>secret-exposure-alerts</code>.</p>
-                </div>
-                <div class="efficiency-card animate-slide-up-delay">
-                    <h3>Services</h3>
-                    <p>API Gateway (8080), Auth (8081), Ingestion (8082), Detection Engine (8083), Inventory (8084), Rotation (8085), Alert (8086), Git Scanner (8087), Cloud Discovery (8088), <strong>Secret Graph (blast radius)</strong>. React dashboard (Vite + TypeScript) talks to gateway; JWT and API key resolve to tenant.</p>
-                </div>
-                <div class="efficiency-card animate-slide-up-delay-2">
-                    <h3>Observability</h3>
-                    <p>Each service: /actuator/health, /actuator/prometheus. Metrics: detection_logs_processed_total, detection_secrets_detected_total, secret_rotations_total, tenant_logs_processed_total, ingestion_rate_limited_total. Grafana can scrape for dashboards.</p>
-                </div>
+            <div class="architecture-pipeline-visual">
+                <div class="pipeline-stage">Logs / Git / CI</div>
+                <span class="pipeline-arrow-down">↓</span>
+                <div class="pipeline-stage">Secret Detection Engine</div>
+                <span class="pipeline-arrow-down">↓</span>
+                <div class="pipeline-stage">Exposure Inventory</div>
+                <span class="pipeline-arrow-down">↓</span>
+                <div class="pipeline-stage">Blast Radius Analysis</div>
+                <span class="pipeline-arrow-down">↓</span>
+                <div class="pipeline-stage">Alerts &amp; Rotation</div>
             </div>
-        </div>
-    </section>
-
-    <!-- Impact Section -->
-    <section id="impact" class="section impact-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Why Zerqis</h2>
-                <p class="section-subtitle">Production-ready DevSecOps in one platform</p>
-            </div>
-            <div class="impact-grid">
-                <div class="impact-card animate-float">
-                    <div class="impact-number">Blast Radius</div>
-                    <div class="impact-label">What Can This Secret Access?</div>
-                    <p class="impact-description">IAM user, permissions, affected resources (S3, DynamoDB, Lambda) per exposure—dashboard and API</p>
-                </div>
-                <div class="impact-card animate-float-delay">
-                    <div class="impact-number">50+ Tenants</div>
-                    <div class="impact-label">From Day One</div>
-                    <p class="impact-description">Multi-tenant SaaS with full isolation; all data scoped by tenantId; built to scale</p>
-                </div>
-                <div class="impact-card animate-float-delay-2">
-                    <div class="impact-number">Risk &amp; Alerts</div>
-                    <div class="impact-label">Score + SIEM</div>
-                    <p class="impact-description">Risk from production exposure, sensitivity, frequency; Slack, webhook, SIEM-style forwarding; severity levels</p>
-                </div>
-                <div class="impact-card animate-float-delay-3">
-                    <div class="impact-number">Rotate</div>
-                    <div class="impact-label">Automated</div>
-                    <p class="impact-description">Pluggable rotators (AWS IAM, Vault); trigger → disable old → create new → store event</p>
-                </div>
-            </div>
+            <details class="architecture-details">
+                <summary>Technical architecture</summary>
+                <p class="architecture-technical">Logs → Kafka → Detection Engine → Inventory → Alerts → Rotation → Audit log. Microservices: API Gateway, Auth, Ingestion, Detection Engine, Inventory, Rotation, Alert, Git Scanner, Cloud Discovery, Secret Graph (blast radius).</p>
+            </details>
         </div>
     </section>
 
@@ -333,7 +330,7 @@
                                 <td>Wiz Security</td>
                                 <td>Cloud security posture</td>
                                 <td>Complex and expensive</td>
-                                <td class="cell-advantage">Zerqis is <strong>focused and lightweight</strong></td>
+                                <td class="cell-advantage">Zerqis detects secrets across <strong>logs, CI/CD, and runtime systems</strong></td>
                             </tr>
                             <tr class="comparison-row">
                                 <td class="cell-company">
@@ -352,37 +349,6 @@
                 </div>
             </div>
 
-            <div class="differentiator-block">
-                <h3 class="differentiator-title">The Key Differentiator</h3>
-                <div class="differentiator-headline">
-                    <p class="differentiator-others">Most tools only detect secrets</p>
-                    <p class="differentiator-zerqis">Zerqis detects + analyzes impact</p>
-                </div>
-                <div class="differentiator-table-wrap">
-                    <table class="comparison-table differentiator-table" role="grid">
-                        <thead>
-                            <tr>
-                                <th scope="col">Feature</th>
-                                <th scope="col">Others</th>
-                                <th scope="col" class="col-zerqis">Zerqis</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>Secret detection</td><td><span class="feature-icon feature-yes">✓</span></td><td class="col-zerqis"><span class="feature-icon feature-yes">✓</span></td></tr>
-                            <tr><td>Git scanning</td><td><span class="feature-icon feature-yes">✓</span></td><td class="col-zerqis"><span class="feature-icon feature-yes">✓</span></td></tr>
-                            <tr><td>Log scanning</td><td><span class="feature-icon feature-no">✗</span></td><td class="col-zerqis"><span class="feature-icon feature-yes">✓</span></td></tr>
-                            <tr><td>CI/CD scanning</td><td><span class="feature-icon feature-no">✗</span></td><td class="col-zerqis"><span class="feature-icon feature-yes">✓</span></td></tr>
-                            <tr><td>Blast radius analysis</td><td><span class="feature-icon feature-no">✗</span></td><td class="col-zerqis"><span class="feature-icon feature-yes">✓</span></td></tr>
-                            <tr><td>Secret rotation trigger</td><td><span class="feature-icon feature-no">✗</span></td><td class="col-zerqis"><span class="feature-icon feature-yes">✓</span></td></tr>
-                            <tr><td>Compliance audit logs</td><td><span class="feature-icon feature-limited">Limited</span></td><td class="col-zerqis"><span class="feature-icon feature-yes">✓</span></td></tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="architecture-flow">
-                    <span class="architecture-label">Architecture</span>
-                    <p class="architecture-pipeline">Logs → Kafka → Detection Engine → Inventory → Alerts → Rotation → Audit log</p>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -390,15 +356,15 @@
     <section id="customers" class="section customers-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Our Customers</h2>
-                <p class="section-subtitle">Trusted by security and platform teams</p>
+                <h2 class="section-title">Early Access Program</h2>
+                <p class="section-subtitle">We are working with engineering teams to detect exposed secrets across logs and CI/CD pipelines.</p>
             </div>
             <div class="coming-soon-container">
                 <div class="coming-soon-card animate-pulse">
                     <div class="coming-soon-icon">🛡️</div>
-                    <h3>Coming Soon</h3>
-                    <p>We're working with teams to detect exposed secrets in logs and CI/CD. Stay tuned for case studies and early access.</p>
-                    <div class="coming-soon-badge">Early Access Available</div>
+                    <h3>Join our early access program</h3>
+                    <p>Get hands-on with Zerqis and help shape the product. No credit card required.</p>
+                    <a href="#" class="btn btn-primary">Request Early Access</a>
                 </div>
             </div>
         </div>
@@ -413,8 +379,8 @@
                         <span class="logo-icon">🛡️</span>
                         <span class="logo-text">Zerqis</span>
                     </div>
-                    <p>Detect exposed secrets in logs, CI/CD, and Git; blast radius analysis; automated rotation. 50+ tenants from day one. Founded by Dhanush S.</p>
-                    <p class="footer-founder">Founded by Dhanush S</p>
+                    <p>Detect leaked credentials before attackers exploit them. Blast radius analysis; automated rotation.</p>
+                    <p class="footer-founder">Founded by Dhanush S. Built by engineers focused on DevSecOps and cloud security.</p>
                     <div class="footer-social">
                         <a href="https://www.linkedin.com/in/incident-ops/" target="_blank" rel="noopener noreferrer" class="footer-social-link" title="Company LinkedIn">💼 Follow us on LinkedIn</a>
                     </div>
@@ -422,10 +388,12 @@
                 <div class="footer-links">
                     <div class="footer-column">
                         <h4>Product</h4>
-                        <a href="#about">About</a>
+                        <a href="#problem">The Problem</a>
+                        <a href="#how-it-works">How It Works</a>
+                        <a href="#differentiator">Why Zerqis</a>
                         <a href="#features">Features</a>
-                        <a href="#efficiency">Architecture</a>
-                        <a href="#impact">Impact</a>
+                        <a href="#integrations">Integrations</a>
+                        <a href="#architecture">Architecture</a>
                         <a href="#compare">Compare</a>
                     </div>
                     <div class="footer-column">

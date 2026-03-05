@@ -497,6 +497,247 @@ body {
     line-height: 1.6;
 }
 
+/* The Problem Section */
+.problem-section {
+    background: var(--bg-primary);
+}
+
+.problem-content {
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.problem-lead {
+    font-size: 1.0625rem;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+}
+
+.problem-list {
+    margin: 0 0 1.5rem 1.5rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+.problem-consequence {
+    font-size: 1.0625rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.problem-gap {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+.problem-cta {
+    font-size: 1.125rem;
+    color: var(--primary-dark);
+}
+
+/* How Zerqis Works - Pipeline */
+.pipeline-section {
+    background: var(--bg-secondary);
+}
+
+.pipeline-steps {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem 0.5rem;
+    margin-top: 2rem;
+}
+
+.pipeline-step {
+    background: var(--bg-primary);
+    padding: 1.5rem 1.25rem;
+    border-radius: 1rem;
+    text-align: center;
+    min-width: 160px;
+    max-width: 200px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pipeline-step:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.pipeline-step-icon {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+.pipeline-step h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.pipeline-step p {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.pipeline-arrow {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* Key Differentiator Section */
+.differentiator-section {
+    background: var(--bg-primary);
+}
+
+.differentiator-section .differentiator-headline {
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.differentiator-section .differentiator-others {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+}
+
+.differentiator-section .differentiator-zerqis {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.blast-radius-block {
+    background: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+    border: 1px solid var(--border-color);
+}
+
+.blast-radius-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.blast-radius-lead {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+.blast-radius-example {
+    font-size: 0.9375rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.blast-radius-list {
+    margin: 0 0 1rem 1.5rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+.blast-radius-cta {
+    font-weight: 600;
+    color: var(--primary-dark);
+}
+
+.differentiator-section .differentiator-table-wrap {
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+/* Integrations Section */
+.integrations-section {
+    background: var(--bg-secondary);
+}
+
+.integrations-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 1.5rem;
+    margin-top: 2rem;
+}
+
+.integration-item {
+    padding: 0.75rem 1.25rem;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    font-size: 0.9375rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.integration-item:hover {
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Architecture Section */
+.architecture-section {
+    background: var(--bg-primary);
+}
+
+.architecture-pipeline-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    margin-top: 2rem;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pipeline-stage {
+    padding: 1rem 1.5rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-align: center;
+    width: 100%;
+}
+
+.pipeline-arrow-down {
+    color: var(--primary-color);
+    font-size: 1.25rem;
+    padding: 0.25rem 0;
+}
+
+.architecture-details {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: var(--bg-secondary);
+    border-radius: 0.5rem;
+    border: 1px solid var(--border-color);
+}
+
+.architecture-details summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.architecture-technical {
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
 /* Comparison Section */
 .comparison-section {
     background: var(--bg-secondary);
@@ -833,7 +1074,12 @@ body {
     font-size: 1.125rem;
     color: var(--text-secondary);
     line-height: 1.8;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+}
+
+.coming-soon-card .btn {
+    margin-top: 0.5rem;
+    display: inline-block;
 }
 
 .coming-soon-badge {
@@ -1642,20 +1888,42 @@ body {
         min-width: 160px;
     }
 
-    .differentiator-block {
-        padding: 1.5rem 1rem;
-        margin-top: 2rem;
-    }
-
     .differentiator-headline {
         flex-direction: column;
         gap: 0.5rem;
         margin-bottom: 1.5rem;
     }
 
+    .blast-radius-block {
+        padding: 1.5rem 1rem;
+    }
+
     .architecture-pipeline {
         font-size: 0.8rem;
         word-break: break-all;
+    }
+
+    .pipeline-steps {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .pipeline-arrow {
+        transform: rotate(90deg);
+    }
+
+    .pipeline-step {
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .integrations-grid {
+        gap: 0.75rem 1rem;
+    }
+
+    .integration-item {
+        padding: 0.6rem 1rem;
+        font-size: 0.875rem;
     }
 
     .confetti-container {
