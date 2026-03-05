@@ -1,26 +1,28 @@
-# Effivio
+# Zerqis
 
-**Cost planning and FinOps for Kubernetes and cloud — before you spend.**
+A production-ready **DevSecOps / CloudSecOps** platform that detects secrets exposed in logs, CI/CD pipelines, and cloud infrastructure—alerts teams and supports automatic secret rotation.
 
-Effivio helps consulting teams and MSPs see what scaling will cost before they scale, allocate and charge back by client, and track savings and margin. One platform for cost planning, FinOps intelligence, unified cost view, and multi-tenant operations.
+This repository contains the **marketing/landing website** for Zerqis. Founded by Dhanush S.
 
-This repository contains the marketing/landing website for Effivio. Founded by Dhanush S.
+## What Zerqis Does
 
-## What we built (current product)
+- **Detect secrets** — Application logs, CI/CD, optionally Git commits and cloud configs (AWS keys, JWT, passwords, DB URLs).
+- **Track** — Central inventory with risk scoring; filter by service, environment; exposures and rotation events.
+- **Alert** — Slack and generic webhook when exposures are found (Service, Environment, Secret Type, Severity).
+- **Rotate** — Trigger rotation via API; pluggable rotators with AWS implementation.
+- **Multi-tenant SaaS** — All data scoped by tenantId; JWT for dashboard, API key for log ingestion; RBAC (ADMIN, SECURITY_ENGINEER, VIEWER).
 
-- **Cost planning** — Cost-aware capacity planning (+N replicas → ₹X), cost impact simulation (what-if CPU/memory), budget and alerts.
-- **FinOps intelligence** — Optimization & savings (track savings realized), chargeback/showback, governance, margin analytics.
-- **Unified cost view** — Executive dashboard, cost analytics, Cloud (AWS) with tag-to-namespace mapping.
-- **Platform** — Multi-tenant, reports & audit, self-host or SaaS.
+## Onboarding Flow (Summary)
 
-## What we support
+1. **Sign up** — Email, password, display name, optional org name.
+2. **Create API key** — Dashboard → API Keys; use in `X-API-Key` for `POST /api/v1/logs`.
+3. **Send logs** — JSON: `serviceName`, `environment`, `logMessage`; 202 Accepted.
+4. **Verify** — Overview, Secret Inventory, Exposure Events, Security Risk update after processing.
+5. **(Optional)** Git webhook, Slack/webhook alerts.
 
-- **Infrastructure:** Kubernetes (any distribution); AWS (Cost Explorer, tag-based allocation). GCP/Azure on roadmap.
-- **Deployment:** Self-hosted (Docker/Helm); agent in customer cluster via Helm.
-- **Identity:** Email/password; Super Admin, Tenant Admin, Tenant Viewer. MFA/SSO on roadmap.
-- **Use cases:** Consulting firms, MSPs, multi-client orgs, delivery teams.
+See **Customer Onboarding** and **API** docs in the main Zerqis repo for full details.
 
-## Tech
+## Tech (This Site)
 
 - Static site: HTML, CSS, JavaScript.
 - Open `index.html` in a browser or serve the folder with any static server.

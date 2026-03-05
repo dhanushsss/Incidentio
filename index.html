@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Effivio — Cost planning and FinOps for Kubernetes and cloud</title>
+    <title>Zerqis — Detect Exposed Secrets in Logs &amp; CI/CD</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,8 +15,8 @@
         <div class="container">
             <div class="nav-content">
                 <div class="logo">
-                    <span class="logo-icon">◉</span>
-                    <span class="logo-text">Effivio</span>
+                    <span class="logo-icon">🛡️</span>
+                    <span class="logo-text">Zerqis</span>
                 </div>
                 <div class="menu-toggle" id="menuToggle">
                     <span></span>
@@ -24,13 +24,12 @@
                     <span></span>
                 </div>
                 <div class="nav-links" id="navLinks">
-                    <a href="#built">What we built</a>
-                    <a href="#support">What we support</a>
-                    <a href="#roadmap">Roadmap</a>
-                    <a href="#why">Why Effivio</a>
+                    <a href="#about">About</a>
+                    <a href="#features">Features</a>
+                    <a href="#security">Security</a>
+                    <a href="#efficiency">Architecture</a>
+                    <a href="#impact">Impact</a>
                     <a href="#customers">Customers</a>
-                    <a href="#" class="nav-cta nav-cta-secondary">Sign in</a>
-                    <a href="#" class="nav-cta nav-cta-primary">Pricing</a>
                 </div>
             </div>
         </div>
@@ -40,230 +39,220 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
+                <p class="hero-badge">DevSecOps / CloudSecOps</p>
                 <h1 class="hero-title animate-fade-in">
-                    Cost planning and FinOps for Kubernetes and cloud — <span class="gradient-text">before you spend.</span>
+                    Detect Exposed Secrets in<br>
+                    <span class="gradient-text">Logs, CI/CD &amp; Git</span>
                 </h1>
                 <p class="hero-subtitle animate-fade-in-delay">
-                    See what scaling will cost before you scale. Allocate and charge back by client. Track savings and margin. One platform for consulting teams and MSPs.
+                    Central inventory, risk scoring, Slack and webhook alerts, and secret rotation. 
+                    Get from sign-up to detecting exposures quickly—data isolated per organization.
                 </p>
                 <div class="hero-buttons animate-fade-in-delay-2">
-                    <a href="#" class="btn btn-primary">Sign in</a>
-                    <a href="#" class="btn btn-secondary">Pricing</a>
+                    <a href="#features" class="btn btn-primary">See Features</a>
+                    <a href="#efficiency" class="btn btn-secondary">How It Works</a>
                 </div>
             </div>
         </div>
         <div class="hero-background"></div>
     </section>
 
-    <!-- What we built -->
-    <section id="built" class="section about-section">
+    <!-- About Section -->
+    <section id="about" class="section about-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">What we built</h2>
-                <p class="section-subtitle">Current product — cost planning, FinOps intelligence, unified view, and platform</p>
+                <h2 class="section-title">What Zerqis Does</h2>
+                <p class="section-subtitle">Detect, track, alert, and rotate—all in one platform</p>
             </div>
-
-            <div class="built-block">
-                <h3 class="built-block-title">Cost planning <span class="built-badge">Hero capability</span></h3>
-                <div class="about-content">
-                    <div class="about-card animate-slide-up">
-                        <div class="card-icon">📐</div>
-                        <h3>Cost-aware capacity planning</h3>
-                        <p>“If we add N replicas → spend increases by ₹X.” Predict scale-out cost using real cost-per-replica from your clusters. Planning page.</p>
-                    </div>
-                    <div class="about-card animate-slide-up-delay">
-                        <div class="card-icon">🔄</div>
-                        <h3>Cost impact simulation</h3>
-                        <p>Before deploy: “What if we set CPU 500m → 1000m?” Get estimated monthly cost using your rates. No guessing. Optimization page.</p>
-                    </div>
-                    <div class="about-card animate-slide-up-delay-2">
-                        <div class="card-icon">🔔</div>
-                        <h3>Budget and alerts</h3>
-                        <p>Set monthly budgets; get warned or critical alerts when spend crosses thresholds.</p>
-                    </div>
+            <div class="about-content">
+                <div class="about-card animate-slide-up">
+                    <div class="card-icon">🔍</div>
+                    <h3>Detect Secrets</h3>
+                    <p>Scans application logs, CI/CD pipelines, and optionally Git commits and cloud configs for exposed secrets (AWS keys, JWTs, passwords, DB URLs).</p>
                 </div>
-            </div>
-
-            <div class="built-block">
-                <h3 class="built-block-title">FinOps intelligence <span class="built-badge-sub">Not just monitoring</span></h3>
-                <div class="about-content">
-                    <div class="about-card animate-slide-up">
-                        <div class="card-icon">⚡</div>
-                        <h3>Optimization & savings</h3>
-                        <p>Right-size overprovisioned workloads. See recommendations (reduce CPU/memory, remove idle). Mark as Applied and track <strong>savings realized</strong> so you prove ROI.</p>
-                    </div>
-                    <div class="about-card animate-slide-up-delay">
-                        <div class="card-icon">📋</div>
-                        <h3>Chargeback / showback</h3>
-                        <p>Per-client (namespace) cost for 30/60/90 days. Export CSV client-ready. Built for consulting and MSPs.</p>
-                    </div>
-                    <div class="about-card animate-slide-up-delay-2">
-                        <div class="card-icon">🛡️</div>
-                        <h3>Governance</h3>
-                        <p>Flag workloads without requests, untagged AWS spend, idle clusters. Cost governance, not security.</p>
-                    </div>
-                    <div class="about-card animate-slide-up-delay-3">
-                        <div class="card-icon">📊</div>
-                        <h3>Margin analytics</h3>
-                        <p>Enter revenue per month; see gross margin %, infra cost %, and waste %. “This client is 80% margin” vs “this one has high waste.”</p>
-                    </div>
+                <div class="about-card animate-slide-up-delay">
+                    <div class="card-icon">📋</div>
+                    <h3>Track in Inventory</h3>
+                    <p>Central secret inventory with risk scoring. Filter by service, environment; see exposures and rotation events in one place.</p>
                 </div>
-            </div>
-
-            <div class="built-block">
-                <h3 class="built-block-title">Unified cost view</h3>
-                <div class="features-grid">
-                    <div class="feature-card animate-scale-in">
-                        <div class="feature-header">
-                            <span class="feature-icon">📈</span>
-                            <h3>Executive dashboard</h3>
-                        </div>
-                        <p class="feature-desc">One view: K8s + AWS (and more) spend, trend, top namespaces, savings unlocked, anomaly hints.</p>
-                    </div>
-                    <div class="feature-card animate-scale-in-delay">
-                        <div class="feature-header">
-                            <span class="feature-icon">📉</span>
-                            <h3>Cost analytics</h3>
-                        </div>
-                        <p class="feature-desc">Cost by cluster, namespace, deployment; date range; trends and CSV export.</p>
-                    </div>
-                    <div class="feature-card animate-scale-in-delay-2">
-                        <div class="feature-header">
-                            <span class="feature-icon">☁️</span>
-                            <h3>Cloud (AWS)</h3>
-                        </div>
-                        <p class="feature-desc">Connect Cost Explorer; tag-to-namespace mapping so cloud cost ties to workloads and chargeback.</p>
-                    </div>
+                <div class="about-card animate-slide-up-delay-2">
+                    <div class="card-icon">🔔</div>
+                    <h3>Alert Your Team</h3>
+                    <p>Slack and generic webhook alerts when exposures are found. Formatted messages: Service, Environment, Secret Type, Severity.</p>
                 </div>
-            </div>
-
-            <div class="built-block">
-                <h3 class="built-block-title">Platform and operations</h3>
-                <div class="features-grid">
-                    <div class="feature-card animate-scale-in">
-                        <div class="feature-header">
-                            <span class="feature-icon">👥</span>
-                            <h3>Multi-tenant</h3>
-                        </div>
-                        <p class="feature-desc">One product, many clients/tenants. Each tenant sees only their clusters and cost. Perfect for MSPs and delivery teams.</p>
-                    </div>
-                    <div class="feature-card animate-scale-in-delay">
-                        <div class="feature-header">
-                            <span class="feature-icon">📄</span>
-                            <h3>Reports & audit</h3>
-                        </div>
-                        <p class="feature-desc">PDF reports (with optional tenant branding), audit log for compliance and debugging.</p>
-                    </div>
-                    <div class="feature-card animate-scale-in-delay-2">
-                        <div class="feature-header">
-                            <span class="feature-icon">🔧</span>
-                            <h3>Self-host or SaaS</h3>
-                        </div>
-                        <p class="feature-desc">You control data and deployment. Backend, frontend, and Helm-based agent included.</p>
-                    </div>
+                <div class="about-card animate-slide-up-delay-3">
+                    <div class="card-icon">🔄</div>
+                    <h3>Support Rotation</h3>
+                    <p>Rotate compromised secrets via API. Pluggable rotators with AWS implementation; trigger rotation from the dashboard or automation.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- What we support -->
-    <section id="support" class="section support-section">
+    <!-- Features Section -->
+    <section id="features" class="section what-we-do-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">What Effivio supports</h2>
-                <p class="section-subtitle">Infrastructure, deployment, identity, integrations, and use cases</p>
+                <h2 class="section-title">Features</h2>
+                <p class="section-subtitle">Everything you need to get from sign-up to detecting exposures</p>
             </div>
-            <div class="support-table-wrapper animate-slide-up">
-                <table class="support-table">
-                    <thead>
-                        <tr>
-                            <th>Area</th>
-                            <th>Supported</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Infrastructure</strong></td>
-                            <td>Kubernetes (any distribution); AWS (Cost Explorer, tag-based allocation). GCP/Azure on roadmap.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Deployment</strong></td>
-                            <td>Self-hosted (Docker/Helm); agent deploys in customer cluster via Helm.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Identity</strong></td>
-                            <td>Email/password; roles: Super Admin, Tenant Admin, Tenant Viewer. MFA/SSO on roadmap.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Integrations</strong></td>
-                            <td>Push-based metrics from agent; AWS Cost Explorer API; optional Slack/email budget alerts.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Use cases</strong></td>
-                            <td>Consulting firms, MSPs, multi-client orgs, delivery teams — anyone who needs per-client cost, margin, and savings visibility.</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="features-grid">
+                <div class="feature-card animate-scale-in">
+                    <div class="feature-header">
+                        <span class="feature-icon">📥</span>
+                        <h3>Log Ingestion</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li><code>POST /api/v1/logs</code> with <code>X-API-Key</code>; JSON: serviceName, environment, logMessage</li>
+                        <li>Logs streamed to Kafka; processed asynchronously; 202 Accepted</li>
+                        <li>Onboarding page with sample log; Integration Guide (cURL, Node.js, Python); optional Log Agent for Docker/Kubernetes</li>
+                    </ul>
+                </div>
+                <div class="feature-card animate-scale-in-delay">
+                    <div class="feature-header">
+                        <span class="feature-icon">🔐</span>
+                        <h3>Secret Detection</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li>Regex and rule-based scanning: AWS keys, JWT, Stripe, postgres://, password=, and more</li>
+                        <li>Git webhook: GitHub and GitLab push events; scan commit content; same detection rules</li>
+                        <li>Cloud discovery (optional): AWS IAM keys, Kubernetes Secret resources via GET /api/v1/secrets/discovered</li>
+                    </ul>
+                </div>
+                <div class="feature-card animate-scale-in-delay-2">
+                    <div class="feature-header">
+                        <span class="feature-icon">📊</span>
+                        <h3>Dashboard &amp; Risk</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li>Overview: total secrets, exposures, risk score; Secret Inventory; Exposure Events; Security Risk breakdown</li>
+                        <li>Usage: logs processed, secrets detected, exposures by service; risk trend</li>
+                        <li>Risk score by production exposure, secret type, frequency; prioritize remediation</li>
+                    </ul>
+                </div>
+                <div class="feature-card animate-scale-in-delay-3">
+                    <div class="feature-header">
+                        <span class="feature-icon">🔑</span>
+                        <h3>API Keys &amp; Onboarding</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li>Create/revoke API keys in dashboard (Organization → API Keys); raw key shown once; use in X-API-Key for ingestion</li>
+                        <li>GET /api/v1/onboarding: steps + curl/nodejs/python examples; dashboard Onboarding and Integration Guide</li>
+                        <li>No credit card for standard SaaS trial; provide email, password, display name, optional org name</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- What we're building next (Roadmap) -->
-    <section id="roadmap" class="section roadmap-section">
+    <!-- Security & Multi-Tenancy Section -->
+    <section id="security" class="section security-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">What we're building next</h2>
-                <p class="section-subtitle">Roadmap — coming soon</p>
+                <h2 class="section-title">Security &amp; Multi-Tenancy</h2>
+                <p class="section-subtitle">RBAC, tenant isolation, and secure ingestion</p>
             </div>
-            <ul class="roadmap-list">
-                <li class="roadmap-item animate-slide-up"><strong>Tenant creation from UI</strong> — Create tenants and invite users without touching API/DB. Faster onboarding.</li>
-                <li class="roadmap-item animate-slide-up-delay"><strong>One-command agent deploy</strong> — Post–cluster-creation: copy one Helm command with URL, token, cluster ID. “Effivio in 5 minutes.”</li>
-                <li class="roadmap-item animate-slide-up-delay-2"><strong>AWS cross-account (assume-role)</strong> — Each tenant’s Cost Explorer in their own AWS account. Unblocks MSPs and multi-account setups.</li>
-                <li class="roadmap-item animate-slide-up-delay"><strong>GCP and Azure</strong> — Multi-cloud cost in one dashboard.</li>
-                <li class="roadmap-item animate-slide-up-delay-2"><strong>MFA / SSO</strong> — Enterprise security and compliance.</li>
-                <li class="roadmap-item animate-slide-up"><strong>Trend-based capacity</strong> — “Cluster will need more nodes by date X” using usage trends (advanced capacity planning).</li>
-                <li class="roadmap-item animate-slide-up-delay"><strong>White-label PDF</strong> — Chargeback and reports with your logo and client name for client-facing deliverables.</li>
-            </ul>
+            <div class="features-grid">
+                <div class="feature-card animate-scale-in">
+                    <div class="feature-header">
+                        <span class="feature-icon">👥</span>
+                        <h3>Roles &amp; Access</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li><strong>ADMIN</strong>: tenant management, system metrics, alert history</li>
+                        <li><strong>SECURITY_ENGINEER</strong>: full access to secrets, exposures, rotations, risk, API keys</li>
+                        <li><strong>VIEWER</strong>: read-only dashboards and reports</li>
+                        <li>JWT for dashboard; API key for log ingestion only—never use the same key for both</li>
+                    </ul>
+                </div>
+                <div class="feature-card animate-scale-in-delay">
+                    <div class="feature-header">
+                        <span class="feature-icon">🏢</span>
+                        <h3>Tenant Isolation</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li>All data scoped by tenantId: User, Secret, SecretExposure, RotationEvent, ApiKey</li>
+                        <li>TenantContext from JWT or X-API-Key; gateway resolves and sets X-Tenant-Id</li>
+                        <li>Only users and API keys belonging to your org can see or send data for your tenant</li>
+                    </ul>
+                </div>
+                <div class="feature-card animate-scale-in-delay-2">
+                    <div class="feature-header">
+                        <span class="feature-icon">🔒</span>
+                        <h3>Auth &amp; Gateway</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li>Register: email, password, displayName; Login returns accessToken (Bearer); use for all dashboard APIs</li>
+                        <li>Gateway: JWT validation, rate limiting, security headers (HSTS, X-Frame-Options, CSP, etc.)</li>
+                        <li>API keys: 32-byte secure keys; only hash stored; never log raw secrets; audit logging</li>
+                    </ul>
+                </div>
+                <div class="feature-card animate-scale-in-delay-3">
+                    <div class="feature-header">
+                        <span class="feature-icon">📡</span>
+                        <h3>Alerts &amp; Rotation API</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li>Slack webhook and generic webhook; set SLACK_WEBHOOK_URL / ALERT_WEBHOOK_URL</li>
+                        <li>POST /api/v1/rotations/trigger: secretId, secretType, oldIdentifier (e.g. AWS key ID); Rotation Service runs rotator (e.g. AWS)</li>
+                        <li>OpenAPI/Swagger at /swagger-ui.html and /v3/api-docs per service</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Why Effivio (short bullets) -->
-    <section id="why" class="section impact-section">
+    <!-- Architecture / Efficiency Section -->
+    <section id="efficiency" class="section efficiency-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Why Effivio</h2>
-                <p class="section-subtitle">Cost planning and FinOps for Kubernetes and cloud. Multi-tenant, consulting-first, executive-ready.</p>
+                <h2 class="section-title">How It Works</h2>
+                <p class="section-subtitle">Architecture and data flow</p>
             </div>
-            <div class="impact-grid why-bullets">
+            <div class="efficiency-grid">
+                <div class="efficiency-card animate-slide-up">
+                    <h3>Ingestion → Detection</h3>
+                    <p>Client sends POST /api/v1/logs with X-API-Key. Gateway forwards to Ingestion Service; logs published to Kafka topic <code>logs-ingestion</code>. Detection Engine consumes logs, runs regex rules, creates/updates Secret and SecretExposure in PostgreSQL, publishes to <code>secret-exposure-alerts</code>.</p>
+                </div>
+                <div class="efficiency-card animate-slide-up-delay">
+                    <h3>Services</h3>
+                    <p>API Gateway (8080), Auth (8081), Ingestion (8082), Detection Engine (8083), Inventory (8084), Rotation (8085), Alert (8086), Git Scanner (8087), Cloud Discovery (8088). React dashboard (Vite + TypeScript) talks to gateway; JWT and API key resolve to tenant.</p>
+                </div>
+                <div class="efficiency-card animate-slide-up-delay-2">
+                    <h3>Observability</h3>
+                    <p>Each service: /actuator/health, /actuator/prometheus. Metrics: detection_logs_processed_total, detection_secrets_detected_total, secret_rotations_total, tenant_logs_processed_total, ingestion_rate_limited_total. Grafana can scrape for dashboards.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section id="impact" class="section impact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why Zerqis</h2>
+                <p class="section-subtitle">Production-ready DevSecOps in one platform</p>
+            </div>
+            <div class="impact-grid">
                 <div class="impact-card animate-float">
-                    <div class="impact-icon">📐</div>
-                    <div class="impact-label">Cost planning</div>
-                    <p class="impact-description">Predict scale-out cost and simulate request changes before you deploy.</p>
+                    <div class="impact-number">Fast</div>
+                    <div class="impact-label">Onboarding</div>
+                    <p class="impact-description">Sign up → Create API key → Send logs → Verify detection in minutes</p>
                 </div>
                 <div class="impact-card animate-float-delay">
-                    <div class="impact-icon">👥</div>
-                    <div class="impact-label">Consulting-first</div>
-                    <p class="impact-description">Per-client cost, chargeback, margin %, and savings realized.</p>
+                    <div class="impact-number">Central</div>
+                    <div class="impact-label">Inventory &amp; Risk</div>
+                    <p class="impact-description">One place for secrets, exposures, rotations, and risk score</p>
                 </div>
                 <div class="impact-card animate-float-delay-2">
-                    <div class="impact-icon">☁️</div>
-                    <div class="impact-label">Kubernetes + cloud in one place</div>
-                    <p class="impact-description">K8s and AWS (and more) in one dashboard and story.</p>
+                    <div class="impact-number">Alerts</div>
+                    <div class="impact-label">Slack &amp; Webhook</div>
+                    <p class="impact-description">Get notified when exposures are found; formatted by service, env, severity</p>
                 </div>
                 <div class="impact-card animate-float-delay-3">
-                    <div class="impact-icon">🏢</div>
-                    <div class="impact-label">Multi-tenant</div>
-                    <p class="impact-description">One platform for many clients; no spreadsheets.</p>
-                </div>
-                <div class="impact-card animate-float">
-                    <div class="impact-icon">✓</div>
-                    <div class="impact-label">Savings you can prove</div>
-                    <p class="impact-description">Recommendations → Applied → Savings realized; governance and waste %.</p>
-                </div>
-                <div class="impact-card animate-float-delay">
-                    <div class="impact-icon">🔧</div>
-                    <div class="impact-label">Self-host or SaaS</div>
-                    <p class="impact-description">You control data; batteries-included backend, frontend, and agent.</p>
+                    <div class="impact-number">Multi-Tenant</div>
+                    <div class="impact-label">SaaS Ready</div>
+                    <p class="impact-description">Tenant-scoped data; JWT and API key; RBAC; audit and Prometheus metrics</p>
                 </div>
             </div>
         </div>
@@ -274,13 +263,13 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Our Customers</h2>
-                <p class="section-subtitle">Consulting firms, MSPs, and delivery teams</p>
+                <p class="section-subtitle">Trusted by security and platform teams</p>
             </div>
             <div class="coming-soon-container">
                 <div class="coming-soon-card animate-pulse">
-                    <div class="coming-soon-icon">◉</div>
+                    <div class="coming-soon-icon">🛡️</div>
                     <h3>Coming Soon</h3>
-                    <p>We're working with teams to bring cost planning and FinOps clarity to their operations. Stay tuned for case studies and early access.</p>
+                    <p>We're working with teams to detect exposed secrets in logs and CI/CD. Stay tuned for case studies and early access.</p>
                     <div class="coming-soon-badge">Early Access Available</div>
                 </div>
             </div>
@@ -293,10 +282,10 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <div class="logo">
-                        <span class="logo-icon">◉</span>
-                        <span class="logo-text">Effivio</span>
+                        <span class="logo-icon">🛡️</span>
+                        <span class="logo-text">Zerqis</span>
                     </div>
-                    <p>Cost planning and FinOps for Kubernetes and cloud. Multi-tenant, consulting-first, executive-ready.</p>
+                    <p>Detect exposed secrets in logs, CI/CD, and Git. Track, alert, rotate. Founded by Dhanush S.</p>
                     <p class="footer-founder">Founded by Dhanush S</p>
                     <div class="footer-social">
                         <a href="https://www.linkedin.com/in/incident-ops/" target="_blank" rel="noopener noreferrer" class="footer-social-link" title="Company LinkedIn">💼 Follow us on LinkedIn</a>
@@ -305,15 +294,15 @@
                 <div class="footer-links">
                     <div class="footer-column">
                         <h4>Product</h4>
-                        <a href="#built">What we built</a>
-                        <a href="#support">What we support</a>
-                        <a href="#roadmap">Roadmap</a>
-                        <a href="#why">Why Effivio</a>
+                        <a href="#about">About</a>
+                        <a href="#features">Features</a>
+                        <a href="#efficiency">Architecture</a>
+                        <a href="#impact">Impact</a>
                     </div>
                     <div class="footer-column">
                         <h4>Resources</h4>
                         <a href="#">Documentation</a>
-                        <a href="#">Setup Guide</a>
+                        <a href="#">Customer Onboarding</a>
                         <a href="#">API Docs</a>
                     </div>
                     <div class="footer-column">
@@ -321,12 +310,12 @@
                         <a href="https://www.linkedin.com/in/incident-ops/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                         <a href="#customers">Customers</a>
                         <a href="#">Contact</a>
-                        <a href="#">Pricing</a>
+                        <a href="#">Support</a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Effivio. All rights reserved. Founded by Dhanush S.</p>
+                <p>&copy; 2025 Zerqis. All rights reserved. Founded by Dhanush S.</p>
             </div>
         </div>
     </footer>
