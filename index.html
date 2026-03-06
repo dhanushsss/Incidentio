@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,11 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar">
@@ -42,11 +46,16 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
+                <p class="hero-tagline">The first Secret Exposure Impact Analysis Platform.</p>
                 <h1 class="hero-title animate-fade-in">
-                    Detect leaked credentials before attackers exploit them.
+                    Not just detection.<br>
+                    <span class="gradient-text">Detect → Understand impact → Fix automatically.</span>
                 </h1>
                 <p class="hero-subtitle animate-fade-in-delay">
-                    Zerqis finds exposed API keys, tokens, and passwords across logs, CI/CD pipelines, and Git — and shows exactly what they can access.
+                    We detect exposed secrets in logs, Git (push + PR/MR), and CI; <strong>understand impact</strong>
+                    (blast radius, usage mapping, breach simulation, dependency graph); and <strong>fix</strong> with
+                    rotation, post-rotation webhooks (Vault/K8s/GitHub), and PR blocking. <strong>AWS and GCP</strong>
+                    supported for blast radius and rotation. Multi-tenant from day one.
                 </p>
                 <div class="hero-buttons animate-fade-in-delay-2">
                     <a href="#" class="btn btn-primary">Start Free Trial</a>
@@ -73,8 +82,19 @@
                     <li>configuration files</li>
                 </ul>
                 <p class="problem-consequence">Once leaked, attackers can immediately access cloud resources.</p>
-                <p class="problem-gap">Most security tools detect secrets in Git repositories. Very few detect secrets already exposed in runtime systems.</p>
-                <p class="problem-cta"><strong>Zerqis closes that gap.</strong></p>
+                <p class="problem-lead">Teams struggle to:</p>
+                <ul class="problem-list">
+                    <li><strong>See all exposures in one place</strong> — Logs, Git, and CI are scattered; manual grep
+                        and spreadsheets don’t scale.</li>
+                    <li><strong>Prioritize by impact</strong> — You need to know what an exposed credential can access
+                        and what breaks if you rotate it.</li>
+                    <li><strong>Remediate quickly</strong> — Vault, Kubernetes, and CI need the new value without manual
+                        updates.</li>
+                    <li><strong>Prove compliance</strong> — Auditors and SOC 2 / ISO require an audit trail, evidence
+                        export, and clear ownership.</li>
+                </ul>
+                <p class="problem-cta"><strong>Zerqis gives you one platform</strong> to detect, analyze impact, fix,
+                    and block future leaks—with audit and compliance built in.</p>
             </div>
         </div>
     </section>
@@ -120,16 +140,17 @@
                 <h2 class="section-title">The Key Differentiator</h2>
                 <div class="differentiator-headline">
                     <p class="differentiator-others">Most tools only detect secrets</p>
-                    <p class="differentiator-zerqis">Zerqis detects + analyzes impact</p>
+                    <p class="differentiator-zerqis">Zerqis detects + understands impact → fixes automatically</p>
                 </div>
             </div>
             <div class="blast-radius-block">
                 <h3 class="blast-radius-title">What Can Attackers Do With This Secret?</h3>
-                <p class="blast-radius-lead">Zerqis analyzes the permissions of exposed credentials and shows exactly what resources they can access.</p>
+                <p class="blast-radius-lead">Zerqis analyzes the permissions of exposed credentials (AWS IAM and GCP
+                    service accounts) and shows exactly what resources they can access.</p>
                 <p class="blast-radius-example">For example:</p>
                 <ul class="blast-radius-list">
-                    <li>IAM user permissions</li>
-                    <li>S3 bucket access</li>
+                    <li>AWS IAM user permissions; GCP service account roles</li>
+                    <li>S3 bucket access; GCP resources</li>
                     <li>DynamoDB tables</li>
                     <li>Lambda functions</li>
                 </ul>
@@ -145,13 +166,41 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>Secret detection</td><td><span class="feature-icon feature-yes">✓</span></td><td class="col-zerqis"><span class="feature-icon feature-yes">✓</span></td></tr>
-                        <tr><td>Git scanning</td><td><span class="feature-icon feature-yes">✓</span></td><td class="col-zerqis"><span class="feature-icon feature-yes">✓</span></td></tr>
-                        <tr><td>Log scanning</td><td><span class="feature-icon feature-no">✗</span></td><td class="col-zerqis"><span class="feature-icon feature-yes">✓</span></td></tr>
-                        <tr><td>CI/CD scanning</td><td><span class="feature-icon feature-no">✗</span></td><td class="col-zerqis"><span class="feature-icon feature-yes">✓</span></td></tr>
-                        <tr><td>Blast radius analysis</td><td><span class="feature-icon feature-no">✗</span></td><td class="col-zerqis"><span class="feature-icon feature-yes">✓</span></td></tr>
-                        <tr><td>Secret rotation trigger</td><td><span class="feature-icon feature-no">✗</span></td><td class="col-zerqis"><span class="feature-icon feature-yes">✓</span></td></tr>
-                        <tr><td>Compliance audit logs</td><td><span class="feature-icon feature-limited">Limited</span></td><td class="col-zerqis"><span class="feature-icon feature-yes">✓</span></td></tr>
+                        <tr>
+                            <td>Secret detection</td>
+                            <td><span class="feature-icon feature-yes">✓</span></td>
+                            <td class="col-zerqis"><span class="feature-icon feature-yes">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Git scanning</td>
+                            <td><span class="feature-icon feature-yes">✓</span></td>
+                            <td class="col-zerqis"><span class="feature-icon feature-yes">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Log scanning</td>
+                            <td><span class="feature-icon feature-no">✗</span></td>
+                            <td class="col-zerqis"><span class="feature-icon feature-yes">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>CI/CD scanning</td>
+                            <td><span class="feature-icon feature-no">✗</span></td>
+                            <td class="col-zerqis"><span class="feature-icon feature-yes">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Blast radius analysis</td>
+                            <td><span class="feature-icon feature-no">✗</span></td>
+                            <td class="col-zerqis"><span class="feature-icon feature-yes">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Secret rotation trigger</td>
+                            <td><span class="feature-icon feature-no">✗</span></td>
+                            <td class="col-zerqis"><span class="feature-icon feature-yes">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Compliance audit logs</td>
+                            <td><span class="feature-icon feature-limited">Limited</span></td>
+                            <td class="col-zerqis"><span class="feature-icon feature-yes">✓</span></td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -164,7 +213,8 @@
             <div class="section-header">
                 <h2 class="section-title">🧠 AI Security Intelligence</h2>
                 <p class="section-subtitle">Understand the Risk Instantly</p>
-                <p class="ai-security-lead">Detect leaked secrets and use AI to understand and fix them. Zerqis doesn’t just detect leaked credentials — it uses AI to explain the security impact and recommend fixes.</p>
+                <p class="ai-security-lead">Detect leaked secrets and use AI to understand and fix them. Zerqis doesn’t
+                    just detect leaked credentials — it uses AI to explain the security impact and recommend fixes.</p>
             </div>
             <p class="ai-security-when">When a secret is exposed, Zerqis analyzes:</p>
             <ul class="ai-security-analyzes">
@@ -179,10 +229,12 @@
                 <div class="ai-card">
                     <div class="ai-card-icon">🧠</div>
                     <h3 class="ai-card-title">AI Security Explanation</h3>
-                    <p class="ai-card-desc">When a secret is detected, Zerqis automatically generates a clear security analysis.</p>
+                    <p class="ai-card-desc">When a secret is detected, Zerqis automatically generates a clear security
+                        analysis.</p>
                     <div class="ai-card-example">
                         <p class="ai-card-example-label">Example:</p>
-                        <p><strong>Secret Detected:</strong> AWS_ACCESS_KEY<br><strong>Service:</strong> payment-service<br><strong>Environment:</strong> production</p>
+                        <p><strong>Secret Detected:</strong> AWS_ACCESS_KEY<br><strong>Service:</strong>
+                            payment-service<br><strong>Environment:</strong> production</p>
                         <p><strong>AI Analysis:</strong><br>This key belongs to IAM user "payments-prod".</p>
                         <p><strong>Permissions include:</strong></p>
                         <ul>
@@ -190,8 +242,10 @@
                             <li>DynamoDB table transactions</li>
                             <li>Lambda function invoice-generator</li>
                         </ul>
-                        <p><strong>Potential Impact:</strong><br>An attacker could access transaction logs and invoke internal Lambda functions.</p>
-                        <p><strong>Recommended Action:</strong><br>Rotate the key immediately and update the payment-service environment variables.</p>
+                        <p><strong>Potential Impact:</strong><br>An attacker could access transaction logs and invoke
+                            internal Lambda functions.</p>
+                        <p><strong>Recommended Action:</strong><br>Rotate the key immediately and update the
+                            payment-service environment variables.</p>
                     </div>
                 </div>
                 <div class="ai-card">
@@ -204,7 +258,8 @@
                         <li>where the secret appears in logs or configs</li>
                         <li>which cloud resources it can access</li>
                     </ul>
-                    <p class="ai-card-question">This helps teams answer a critical question: <strong>"What will break if we rotate this secret?"</strong></p>
+                    <p class="ai-card-question">This helps teams answer a critical question: <strong>"What will break if
+                            we rotate this secret?"</strong></p>
                 </div>
                 <div class="ai-card">
                     <div class="ai-card-icon">⚡</div>
@@ -238,52 +293,89 @@
     <section id="features" class="section what-we-do-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Product Features</h2>
-                <p class="section-subtitle">Everything you need to get from sign-up to detecting exposures</p>
+                <h2 class="section-title">Features</h2>
+                <p class="section-subtitle">Detect → understand impact → fix automatically (and block future leaks). One
+                    platform, one API, one dashboard. Not just detection.</p>
             </div>
             <div class="features-grid">
                 <div class="feature-card animate-scale-in">
                     <div class="feature-header">
-                        <span class="feature-icon">📥</span>
-                        <h3>Log Ingestion</h3>
+                        <span class="feature-icon">🔍</span>
+                        <h3>Detection</h3>
                     </div>
                     <ul class="feature-list">
-                        <li><code>POST /api/v1/logs</code> with <code>X-API-Key</code>; JSON: serviceName, environment, logMessage</li>
-                        <li>Logs streamed via Kafka; 202 Accepted; optional Fluent Bit, Logstash, or Log Agent (Docker/Kubernetes)</li>
-                        <li>Onboarding + Integration Guide (cURL, Node.js, Python); no credit card for standard trial</li>
+                        <li>Logs (<code>POST /api/v1/logs</code>), Git push, and pull/merge requests (GitHub + GitLab)
+                        </li>
+                        <li>CI: GitHub Actions, GitLab CI, CircleCI</li>
+                        <li>Regex-based rules: AWS keys, GCP service account keys, Stripe, JWT, passwords, DB URLs, API
+                            keys</li>
+                        <li>Single inventory: who, where, when, severity</li>
                     </ul>
                 </div>
                 <div class="feature-card animate-scale-in-delay">
                     <div class="feature-header">
-                        <span class="feature-icon">🔐</span>
-                        <h3>Runtime Secret Detection</h3>
+                        <span class="feature-icon">💥</span>
+                        <h3>Impact Analysis</h3>
                     </div>
                     <ul class="feature-list">
-                        <li>Regex and rule-based scanning: AWS keys, JWT, Stripe, postgres://, password=, and more</li>
-                        <li>Git webhook: GitHub and GitLab push events; scan commit content; same rules; produce to Kafka</li>
-                        <li>Cloud discovery (optional): AWS IAM keys, Kubernetes Secret resources — GET /api/v1/secrets/discovered</li>
+                        <li><strong>Blast radius</strong> — AWS IAM user and GCP service account roles; permissions and
+                            affected resources (S3, DynamoDB, Lambda, GCP) in plain English</li>
+                        <li><strong>Usage mapping</strong> — Where is this secret used? (services, CI, Terraform, K8s).
+                            “What breaks if we rotate?”</li>
+                        <li><strong>Breach simulator</strong> — “If an attacker uses this key…” can/cannot + data risk;
+                            incident severity for SOC</li>
+                        <li><strong>Secret lifecycle</strong> — Created → Stored → Used → Exposed → Rotated</li>
                     </ul>
                 </div>
                 <div class="feature-card animate-scale-in-delay-2">
                     <div class="feature-header">
-                        <span class="feature-icon">💥</span>
-                        <h3>Blast Radius &amp; Risk</h3>
+                        <span class="feature-icon">🔄</span>
+                        <h3>Auto-Remediation</h3>
                     </div>
                     <ul class="feature-list">
-                        <li><strong>Blast radius</strong>: per exposure — what can this secret access? IAM user, permissions, affected resource types (S3, DynamoDB, Lambda); dashboard and <code>GET /api/v1/blast-radius</code>, <code>/api/v1/exposures/{id}/blast-radius</code></li>
-                        <li>Risk scoring engine: overall score and level from production exposures, secret sensitivity, frequency, unique secrets</li>
-                        <li>Dashboard: Overview, Secret Inventory, Exposure Events, Blast Radius (per exposure), Rotations, Risk, Usage</li>
+                        <li>One-click rotation (AWS and GCP); post-rotation webhook to update Vault, Kubernetes, GitHub
+                        </li>
+                        <li>Contextual remediation plan by secret type (AWS, GCP, Stripe, DB, JWT); optional
+                            AI-generated steps</li>
+                        <li>Secret dependency graph — service-to-secret edges; plan updates before rotating</li>
                     </ul>
                 </div>
                 <div class="feature-card animate-scale-in-delay-3">
                     <div class="feature-header">
-                        <span class="feature-icon">📋</span>
-                        <h3>Inventory &amp; Alerting</h3>
+                        <span class="feature-icon">🚫</span>
+                        <h3>Block PRs</h3>
                     </div>
                     <ul class="feature-list">
-                        <li>Track Secret, SecretExposure, RotationEvent by tenant; firstSeen, lastSeen, exposure count</li>
-                        <li>Alerting: Slack webhook, generic webhook, SIEM-style event forwarding; severity LOW/MEDIUM/HIGH/CRITICAL</li>
-                        <li>API keys: POST/GET/DELETE /api/api-keys; 32-byte keys, hash stored; X-API-Key for POST /api/logs</li>
+                        <li>When a secret is found in a PR/MR, set commit status to <strong>failure</strong> so it can’t
+                            be merged</li>
+                        <li>GitHub Status API; GitLab supported. Message: “Secret detected. Fix before merging.”</li>
+                    </ul>
+                </div>
+                <div class="feature-card animate-scale-in">
+                    <div class="feature-header">
+                        <span class="feature-icon">📊</span>
+                        <h3>Lifecycle &amp; Migration</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li><strong>Secret lifecycle</strong> — Full timeline per credential: where it originated, where
+                            it’s used, when it leaked, when rotated</li>
+                        <li><strong>Migration suggestions</strong> — Replace long-lived keys with IRSA (AWS) and
+                            Workload Identity (GCP); step-by-step guide with estimated time</li>
+                    </ul>
+                </div>
+                <div class="feature-card animate-scale-in-delay">
+                    <div class="feature-header">
+                        <span class="feature-icon">📋</span>
+                        <h3>Compliance &amp; Audit</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li>Audit log (login, API keys, exposures, rotations); evidence export (CSV/JSON)</li>
+                        <li>Security Command Center — risk score, critical exposures, trends; <strong>Security
+                                SLA</strong> (MTTR, team risk, executive view); scheduled compliance reports</li>
+                        <li><strong>Ownership &amp; accountability</strong> — Owner, team, risk owner per secret; assign
+                            incidents to owning team; top leaking teams, team risk score. “Who owns this credential? Who
+                            rotated it? How fast was it fixed?”</li>
+                        <li>SOC 2 / ISO mapping; SIEM webhook</li>
                     </ul>
                 </div>
             </div>
@@ -301,13 +393,13 @@
                 <span class="integration-item">GitHub</span>
                 <span class="integration-item">GitLab</span>
                 <span class="integration-item">AWS</span>
+                <span class="integration-item">GCP</span>
                 <span class="integration-item">Kubernetes</span>
                 <span class="integration-item">Slack</span>
                 <span class="integration-item">PagerDuty</span>
+                <span class="integration-item">Opsgenie</span>
                 <span class="integration-item">Splunk</span>
                 <span class="integration-item">Elastic</span>
-                <span class="integration-item">Fluent Bit</span>
-                <span class="integration-item">Logstash</span>
             </div>
         </div>
     </section>
@@ -332,7 +424,9 @@
             </div>
             <details class="architecture-details">
                 <summary>Technical architecture</summary>
-                <p class="architecture-technical">Logs → Kafka → Detection Engine → Inventory → Alerts → Rotation → Audit log. Microservices: API Gateway, Auth, Ingestion, Detection Engine, Inventory, Rotation, Alert, Git Scanner, Cloud Discovery, Secret Graph (blast radius).</p>
+                <p class="architecture-technical">Logs → Kafka → Detection Engine → Inventory → Alerts → Rotation →
+                    Audit log. Microservices: API Gateway, Auth, Ingestion, Detection Engine, Inventory, Rotation,
+                    Alert, Git Scanner, Cloud Discovery, Secret Graph (blast radius).</p>
             </details>
         </div>
     </section>
@@ -361,7 +455,8 @@
                             <tr class="comparison-row">
                                 <td class="cell-company">
                                     <div class="product-cell-inner">
-                                        <img src="https://cdn.simpleicons.org/github/000000" alt="" class="product-logo-img" width="28" height="28">
+                                        <img src="https://cdn.simpleicons.org/github/000000" alt=""
+                                            class="product-logo-img" width="28" height="28">
                                         <span class="product-name">GitHub</span>
                                     </div>
                                 </td>
@@ -373,8 +468,11 @@
                             <tr class="comparison-row">
                                 <td class="cell-company">
                                     <div class="product-cell-inner">
-                                        <img src="https://cdn.simpleicons.org/gitguardian/000000" alt="" class="product-logo-img" width="28" height="28" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
-                                        <span class="product-logo product-logo-fallback" aria-hidden="true" style="display: none;">G</span>
+                                        <img src="https://cdn.simpleicons.org/gitguardian/000000" alt=""
+                                            class="product-logo-img" width="28" height="28"
+                                            onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                                        <span class="product-logo product-logo-fallback" aria-hidden="true"
+                                            style="display: none;">G</span>
                                         <span class="product-name">GitGuardian</span>
                                     </div>
                                 </td>
@@ -386,39 +484,47 @@
                             <tr class="comparison-row">
                                 <td class="cell-company">
                                     <div class="product-cell-inner">
-                                        <img src="https://cdn.simpleicons.org/hashicorp/000000" alt="" class="product-logo-img" width="28" height="28">
+                                        <img src="https://cdn.simpleicons.org/hashicorp/000000" alt=""
+                                            class="product-logo-img" width="28" height="28">
                                         <span class="product-name">HashiCorp</span>
                                     </div>
                                 </td>
                                 <td>Vault</td>
                                 <td>Secret storage and management</td>
                                 <td>Doesn't detect leaked secrets</td>
-                                <td class="cell-advantage">Zerqis <strong>detects exposed secrets automatically</strong></td>
+                                <td class="cell-advantage">Zerqis <strong>detects exposed secrets automatically</strong>
+                                </td>
                             </tr>
                             <tr class="comparison-row">
                                 <td class="cell-company">
                                     <div class="product-cell-inner">
-                                        <img src="https://cdn.simpleicons.org/wiz/000000" alt="" class="product-logo-img" width="28" height="28" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
-                                        <span class="product-logo product-logo-fallback" aria-hidden="true" style="display: none;">W</span>
+                                        <img src="https://cdn.simpleicons.org/wiz/000000" alt=""
+                                            class="product-logo-img" width="28" height="28"
+                                            onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                                        <span class="product-logo product-logo-fallback" aria-hidden="true"
+                                            style="display: none;">W</span>
                                         <span class="product-name">Wiz</span>
                                     </div>
                                 </td>
                                 <td>Wiz Security</td>
                                 <td>Cloud security posture</td>
                                 <td>Complex and expensive</td>
-                                <td class="cell-advantage">Zerqis detects secrets across <strong>logs, CI/CD, and runtime systems</strong></td>
+                                <td class="cell-advantage">Zerqis detects secrets across <strong>logs, CI/CD, and
+                                        runtime systems</strong></td>
                             </tr>
                             <tr class="comparison-row">
                                 <td class="cell-company">
                                     <div class="product-cell-inner">
-                                        <img src="https://cdn.simpleicons.org/datadog/000000" alt="" class="product-logo-img" width="28" height="28">
+                                        <img src="https://cdn.simpleicons.org/datadog/000000" alt=""
+                                            class="product-logo-img" width="28" height="28">
                                         <span class="product-name">Datadog</span>
                                     </div>
                                 </td>
                                 <td>Datadog Security</td>
                                 <td>Observability security alerts</td>
                                 <td>Not specialized for secrets</td>
-                                <td class="cell-advantage">Zerqis focuses <strong>specifically on secret exposure risk</strong></td>
+                                <td class="cell-advantage">Zerqis focuses <strong>specifically on secret exposure
+                                        risk</strong></td>
                             </tr>
                         </tbody>
                     </table>
@@ -433,7 +539,8 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Early Access Program</h2>
-                <p class="section-subtitle">We are working with engineering teams to detect exposed secrets across logs and CI/CD pipelines.</p>
+                <p class="section-subtitle">We are working with engineering teams to detect exposed secrets across logs
+                    and CI/CD pipelines.</p>
             </div>
             <div class="coming-soon-container">
                 <div class="coming-soon-card animate-pulse">
@@ -455,10 +562,13 @@
                         <span class="logo-icon">🛡️</span>
                         <span class="logo-text">Zerqis</span>
                     </div>
-                    <p>Detect leaked credentials before attackers exploit them. Blast radius analysis; automated rotation.</p>
-                    <p class="footer-founder">Founded by Dhanush S. Built by engineers focused on DevSecOps and cloud security.</p>
+                    <p>Detect leaked credentials before attackers exploit them. Blast radius analysis; automated
+                        rotation.</p>
+                    <p class="footer-founder">Founded by Dhanush S. Built by engineers focused on DevSecOps and cloud
+                        security.</p>
                     <div class="footer-social">
-                        <a href="https://www.linkedin.com/in/incident-ops/" target="_blank" rel="noopener noreferrer" class="footer-social-link" title="Company LinkedIn">💼 Follow us on LinkedIn</a>
+                        <a href="https://www.linkedin.com/in/incident-ops/" target="_blank" rel="noopener noreferrer"
+                            class="footer-social-link" title="Company LinkedIn">💼 Follow us on LinkedIn</a>
                     </div>
                 </div>
                 <div class="footer-links">
@@ -481,7 +591,8 @@
                     </div>
                     <div class="footer-column">
                         <h4>Company</h4>
-                        <a href="https://www.linkedin.com/in/incident-ops/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                        <a href="https://www.linkedin.com/in/incident-ops/" target="_blank"
+                            rel="noopener noreferrer">LinkedIn</a>
                         <a href="#customers">Customers</a>
                         <a href="#">Contact</a>
                         <a href="#">Support</a>
@@ -496,4 +607,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
