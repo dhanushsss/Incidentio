@@ -207,7 +207,7 @@
                 <div class="dev-details-body">
                     <p><strong>GitHub OAuth app:</strong> Homepage <code>http://localhost:3000</code> · Callback <code>http://localhost:8080/api/auth/callback</code></p>
                     <p><strong>Required:</strong> <code>GITHUB_CLIENT_ID</code>, <code>GITHUB_CLIENT_SECRET</code>, <code>JWT_SECRET</code>, <code>DB_URL</code>, <code>DB_USERNAME</code>, <code>DB_PASSWORD</code></p>
-                    <p><strong>Optional:</strong> <code>FRONTEND_URL</code>, <code>GITHUB_WEBHOOK_SECRET</code>, <code>ANTHROPIC_API_KEY</code>, <code>SLACK_WEBHOOK_URL</code>, PR limits and status flags. Browser token: <code>zerqis_token</code> (legacy <code>architect_token</code> migrates on sign-in).</p>
+                    <p><strong>Optional:</strong> <code>FRONTEND_URL</code>, <code>GITHUB_WEBHOOK_SECRET</code>, <code>SLACK_WEBHOOK_URL</code>, PR limits and status flags. Browser token: <code>zerqis_token</code> (legacy <code>architect_token</code> migrates on sign-in).</p>
                 </div>
             </details>
 
@@ -228,7 +228,6 @@
                         <li><code>PR_MAX_FILES_SCAN</code> (default 50)</li>
                         <li><code>PR_POST_COMMIT_STATUS</code> / <code>PR_FAIL_ON_REVIEW</code></li>
                         <li><code>FRONTEND_URL</code> — links in comments</li>
-                        <li><code>ANTHROPIC_API_KEY</code> + <code>PR_AI_RISK_TIMEOUT_MS</code> — optional AI Insight text only</li>
                     </ul>
                 </div>
             </details>
@@ -248,7 +247,7 @@
                     <p class="run-local-lead"><strong>Database:</strong> <code>createdb architect</code></p>
                     <p><strong>Backend</strong> <code>http://localhost:8080</code><br><code>cd backend &amp;&amp; mvn spring-boot:run</code></p>
                     <p><strong>Frontend</strong> <code>http://localhost:3000</code><br><code>cd frontend &amp;&amp; npm i &amp;&amp; npm run dev</code></p>
-                    <p><strong>Docker:</strong> <code>docker compose up --build</code> — set GitHub (and optional Slack/Anthropic) in <code>.env</code>.</p>
+                    <p><strong>Docker:</strong> <code>docker compose up --build</code> — set GitHub (and optional Slack) in <code>.env</code>.</p>
                     <div class="hero-buttons run-local-ctas">
                         <a href="#pr-example" class="btn btn-secondary">See demo</a>
                     </div>
