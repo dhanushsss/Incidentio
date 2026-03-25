@@ -29,7 +29,7 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observe all animated elements
 document.addEventListener('DOMContentLoaded', () => {
-    const animatedElements = document.querySelectorAll('.about-card, .feature-card, .impact-card, .efficiency-card, .table-card, .coming-soon-card');
+    const animatedElements = document.querySelectorAll('.about-card, .feature-card, .impact-card, .efficiency-card, .table-card, .coming-soon-card, .step-card, .pr-comment-mock');
     
     animatedElements.forEach(el => {
         el.style.opacity = '0';
@@ -93,23 +93,3 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Confetti Animation - Simple
-document.addEventListener('DOMContentLoaded', () => {
-    const confettiContainer = document.querySelector('.confetti-container');
-    if (!confettiContainer) return;
-
-    // Confetti colors using the theme colors
-    const colors = ['#6366f1', '#8b5cf6', '#ec4899'];
-    
-    // Create additional confetti pieces dynamically
-    const confettiCount = 30;
-    for (let i = 0; i < confettiCount; i++) {
-        const confetti = document.createElement('div');
-        confetti.className = 'confetti';
-        confetti.style.left = Math.random() * 100 + '%';
-        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-        confetti.style.animationDelay = Math.random() * 3 + 's';
-        confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
-        confettiContainer.appendChild(confetti);
-    }
-});
