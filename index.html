@@ -27,6 +27,7 @@
                     <a href="#problems">Pain</a>
                     <a href="#how-it-works">How it works</a>
                     <a href="#pr-example">Example</a>
+                    <a href="#atlas">Atlas</a>
                     <a href="#solution">Product</a>
                     <a href="#developers">Technical</a>
                     <a href="#run">Try it</a>
@@ -133,6 +134,7 @@
                     </div>
                 </div>
                 <div class="pr-comment-body">
+                    <p class="pr-comment-zerqis"><strong>Zerqis:</strong> API surface change — dependents detected</p>
                     <p class="pr-comment-lead"><strong>⚠️ 3 services depend on this endpoint</strong></p>
                     <p>Changing <code>DELETE /api/v1/orders/{id}</code> affects callers in:</p>
                     <ul class="pr-comment-list">
@@ -140,7 +142,8 @@
                         <li><code>notifications-worker</code> — <code>cancelOrder.ts</code></li>
                         <li><code>admin-ui</code> — <code>api/orders.ts</code></li>
                     </ul>
-                    <p class="pr-comment-risk"><strong>Risk:</strong> REVIEW REQUIRED</p>
+                    <p class="pr-comment-risk"><strong>Verdict:</strong> REVIEW REQUIRED · <strong>Score:</strong> 62</p>
+                    <p class="pr-comment-confidence"><strong>Confidence:</strong> direct 2 · inferred 1 · unresolved 0 · stale 0</p>
                     <p class="pr-comment-foot">Open in Zerqis for graph · trace · full impact</p>
                 </div>
             </div>
@@ -162,17 +165,23 @@
                 <div class="about-card animate-slide-up-delay">
                     <div class="card-icon">💬</div>
                     <h3>Feedback on every PR</h3>
-                    <p>GitHub webhook on open and push: targeted analysis on changed files, scored comment on the PR.</p>
+                    <p>Webhook on <code>opened</code> / <code>synchronize</code>: verdict <code>SAFE TO MERGE</code>, <code>REVIEW REQUIRED</code>, or <code>BLOCKED</code>, plus numeric score and confidence breakdown on the thread.</p>
                 </div>
                 <div class="about-card animate-slide-up-delay-2">
                     <div class="card-icon">🔔</div>
                     <h3>Fits your workflow</h3>
-                    <p>Optional Slack alerts and commit status. Enterprise: governance, snapshots, API keys for automation.</p>
+                    <p>Optional Slack when the verdict isn’t <code>SAFE TO MERGE</code>, commit status on the PR head, and enterprise governance / snapshots / API keys.</p>
+                </div>
+                <div class="about-card animate-slide-up-delay-3">
+                    <div class="card-icon">📍</div>
+                    <h3>Atlas — system health</h3>
+                    <p>Proactive dashboard at <code>/atlas</code>: org-wide health score, per-repo diagnosis, dead endpoints (zero callers), and blast-radius planning without opening a PR.</p>
                 </div>
             </div>
             <div class="ai-disclaimer">
                 <p><strong>AI</strong> explains the impact — it doesn’t decide it. Scores and verdicts come from the graph and rules; optional AI only adds a short human-readable note.</p>
             </div>
+            <p class="solution-footnote">Each run logs prediction signals to <code>pr_predictions</code> so you can calibrate trust over time.</p>
         </div>
     </section>
 
@@ -187,6 +196,37 @@
         </div>
     </section>
 
+    <section id="atlas" class="section atlas-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Atlas</h2>
+                <p class="section-subtitle">System health overview — same data as the graph and PR engine, tuned for planning and cleanup</p>
+            </div>
+            <div class="atlas-callout">
+                <span class="atlas-callout-icon" aria-hidden="true">⚡</span>
+                <div>
+                    <h3 class="atlas-callout-title">Blast radius without a PR</h3>
+                    <p class="atlas-callout-copy">From Atlas, drill into a repo to see what breaks if that service changes — call sites, affected files, risk. Use it when you’re designing refactors, not only when a PR is open.</p>
+                </div>
+            </div>
+            <div class="atlas-grid">
+                <div class="atlas-card animate-slide-up">
+                    <h3>System health score</h3>
+                    <p>Average of per-repo scores (0–100) with a label: <code>HEALTHY</code>, <code>FAIR</code>, or <code>POOR</code>. Roll-up counts include total / utilized / dead endpoints, unresolved outbound calls, stale scans (&gt;7 days), and repos never scanned.</p>
+                </div>
+                <div class="atlas-card animate-slide-up-delay">
+                    <h3>Per-repo cards</h3>
+                    <p>Repos sort worst-first. Each card shows health score, primary diagnosis (e.g. orphan ratio, stale scan, unresolved calls), inbound/outbound dependency counts, orphan endpoints, and top sample routes with no callers.</p>
+                </div>
+                <div class="atlas-card animate-slide-up-delay-2">
+                    <h3>Dead endpoints catalog</h3>
+                    <p>Every API route with <strong>zero</strong> incoming <code>api_calls</code>, across connected repos — method, path, file, line, framework, and how stale the scan is. Sorted so the shakiest data surfaces first.</p>
+                </div>
+            </div>
+            <p class="atlas-api-note">Authenticated API: <code>GET /api/v1/atlas/dashboard</code> · <code>GET /api/v1/atlas/dead-endpoints</code> — JWT required; computed from existing graph tables (no extra migrations).</p>
+        </div>
+    </section>
+
     <section id="developers" class="section developers-section">
         <div class="container">
             <div class="section-header">
@@ -195,40 +235,63 @@
             </div>
 
             <details class="dev-details">
+                <summary>End-to-end in production</summary>
+                <div class="dev-details-body">
+                    <ol class="dev-ordered-list">
+                        <li><strong>Ingest</strong> — OAuth, connect repos, deep/incremental scans build endpoint / call / import graph data.</li>
+                        <li><strong>Keep graph fresh</strong> — work lives in <code>scan_tasks</code>; workers claim jobs with DB locking (<code>FOR UPDATE SKIP LOCKED</code>) and enforce concurrency limits.</li>
+                        <li><strong>Analyze PR</strong> — <code>pull_request</code> webhook triggers async analysis; changed files at PR head join the stored graph.</li>
+                        <li><strong>Compute risk</strong> — deterministic verdict and score; comments include confidence breakdown (direct / inferred / unresolved / stale).</li>
+                        <li><strong>Publish</strong> — Markdown comment, optional commit status and Slack.</li>
+                        <li><strong>Log prediction</strong> — row in <code>pr_predictions</code> for calibration (stored risk normalized to <code>LOW</code>, <code>REVIEW_REQUIRED</code>, <code>BLOCKED</code>).</li>
+                    </ol>
+                </div>
+            </details>
+
+            <details class="dev-details">
                 <summary>Languages &amp; stack</summary>
                 <div class="dev-details-body">
                     <p><strong>Languages (typical):</strong> Java (Spring), JavaScript/TypeScript (Express-style), Python (Flask/FastAPI), Ruby, Go — plus fetch/axios-style frontend calls where detected.</p>
-                    <p><strong>Runtime:</strong> Java 21, Spring Boot 3.2, PostgreSQL, Flyway, React (Vite). Scans use a DB-backed queue; PR jobs can preempt manual scans.</p>
+                    <p><strong>Discovery:</strong> language-specific extractors (regex-based today; structured so parsers can be swapped) over repo files — quick vs deep scan modes.</p>
+                    <p><strong>Runtime:</strong> Java 21, Spring Boot 3.2, PostgreSQL, Flyway, React (Vite). Graph edges include <code>CALLS</code>, <code>IMPORTS</code>, and config links; cross-repo URL matching ties outbound calls to endpoints. Scans use a DB-backed queue; PR-typed jobs are prioritized over manual scans. Multi-instance coordination without Redis/Kafka.</p>
                 </div>
             </details>
 
             <details class="dev-details">
                 <summary>Setup &amp; environment</summary>
                 <div class="dev-details-body">
-                    <p><strong>GitHub OAuth app:</strong> Homepage <code>http://localhost:3000</code> · Callback <code>http://localhost:8080/api/auth/callback</code></p>
-                    <p><strong>Required:</strong> <code>GITHUB_CLIENT_ID</code>, <code>GITHUB_CLIENT_SECRET</code>, <code>JWT_SECRET</code>, <code>DB_URL</code>, <code>DB_USERNAME</code>, <code>DB_PASSWORD</code></p>
-                    <p><strong>Optional:</strong> <code>FRONTEND_URL</code>, <code>GITHUB_WEBHOOK_SECRET</code>, <code>SLACK_WEBHOOK_URL</code>, PR limits and status flags. Browser token: <code>zerqis_token</code> (legacy <code>architect_token</code> migrates on sign-in).</p>
+                    <p><strong>GitHub OAuth app:</strong> Homepage <code>http://localhost:3000</code> (prod: your UI origin) · Callback must match <code>GITHUB_REDIRECT_URI</code> — default <code>http://localhost:8080/api/auth/callback</code></p>
+                    <p><strong>Required:</strong> <code>GITHUB_CLIENT_ID</code>, <code>GITHUB_CLIENT_SECRET</code>, <code>JWT_SECRET</code>, <code>DB_URL</code> (e.g. <code>jdbc:postgresql://localhost:5432/zerqis</code>), <code>DB_USERNAME</code>, <code>DB_PASSWORD</code></p>
+                    <p><strong>URLs &amp; CORS:</strong> <code>FRONTEND_URL</code>, <code>APP_PUBLIC_URL</code> (public API base; drives webhook URL in <code>GET /api/v1/dashboard/product-config</code>), <code>CORS_ALLOWED_ORIGINS</code>, optional <code>CORS_ALLOWED_ORIGIN_PATTERNS</code> (e.g. Vercel previews).</p>
+                    <p><strong>Frontend (Vite):</strong> <code>VITE_API_BASE_URL</code> for a remote API; local dev often uses proxied <code>/api</code> per <code>vite.config.ts</code>. Copy <code>frontend/.env.example</code> → <code>.env</code> when needed.</p>
+                    <p><strong>Other:</strong> <code>GITHUB_WEBHOOK_SECRET</code>, <code>SLACK_WEBHOOK_URL</code> (fires when verdict is not <code>SAFE TO MERGE</code>), <code>JWT_EXPIRATION_MS</code>, <code>ZERQIS_VERSION</code> (or <code>ARCHITECT_VERSION</code> fallback → <code>GET /api/public/version</code>), <code>UI_CORE_ONLY</code>, PR flags below. Put Docker secrets in <code>.env</code> beside <code>docker-compose.yml</code>.</p>
+                    <p>Browser token: <code>zerqis_token</code> (legacy <code>architect_token</code> migrates on next sign-in).</p>
                 </div>
             </details>
 
             <details class="dev-details">
                 <summary>API overview</summary>
                 <div class="dev-details-body dev-details-body--api">
-                    <p>Base URL example <code>http://localhost:8080</code>. App API under <code>/api/v1</code>. Authenticated routes: <code>Authorization: Bearer &lt;jwt&gt;</code>.</p>
+                    <p>Base URL example <code>http://localhost:8080</code>. Versioned app API under <code>/api/v1</code>. <strong>OAuth and webhooks stay unversioned:</strong> <code>/api/auth/**</code>, <code>/api/webhooks/**</code>. JWT: <code>Authorization: Bearer &lt;jwt&gt;</code>.</p>
                     <p><strong>Public:</strong> <code>GET /api/auth/github</code>, <code>GET /api/auth/callback</code>, <code>POST /api/webhooks/github</code>, <code>GET /api/public/version</code>, <code>GET /api/public/v1/health</code>, <code>GET /api/public/v1/graph/{owner}</code> with <code>X-API-Key</code>.</p>
-                    <p><strong>JWT areas:</strong> <code>/api/auth</code> (e.g. <code>GET /me</code>), <code>/api/v1/repos</code>, <code>/api/v1/scan</code>, <code>/api/v1/graph</code>, <code>/api/v1/insights</code>, <code>/api/v1/impact</code>, <code>/api/v1/ai</code>, <code>/api/v1/enterprise</code>, <code>/api/v1/keys</code>, <code>/api/v1/dashboard</code>. Scan triggers may return <code>QUEUED</code> while the queue runs.</p>
+                    <p><strong>Unauthenticated (reference):</strong> <code>/actuator/health</code>, <code>/actuator/info</code> — other <code>/api/**</code> requires JWT unless listed in security config.</p>
+                    <p><strong>JWT areas:</strong> <code>/api/auth</code> (e.g. <code>GET /me</code>), <code>/api/v1/repos</code>, <code>/api/v1/scan</code> (trigger, status, SSE), <code>/api/v1/graph</code>, <code>/api/v1/insights</code>, <code>/api/v1/impact</code>, <code>GET /api/v1/atlas/dashboard</code>, <code>GET /api/v1/atlas/dead-endpoints</code>, <code>/api/v1/ai</code>, <code>/api/v1/enterprise</code>, <code>/api/v1/keys</code>, <code>/api/v1/dashboard</code> — e.g. <code>GET /api/v1/dashboard/product-config</code> (webhook URL = <code>APP_PUBLIC_URL</code> + <code>/api/webhooks/github</code>), <code>GET /api/v1/dashboard/risky-prs-week</code>.</p>
+                    <p>Scan and rescan triggers return <code>QUEUED</code> while <code>scan_tasks</code> is scheduled.</p>
                 </div>
             </details>
 
             <details class="dev-details">
                 <summary>PR webhook &amp; configuration</summary>
                 <div class="dev-details-body">
-                    <p><code>POST /api/webhooks/github</code> for <code>pull_request</code> (<code>opened</code>, <code>synchronize</code>). Optional HMAC via <code>GITHUB_WEBHOOK_SECRET</code>. Work runs async after <code>200</code>. Connect the repo and run at least one deep scan first so callers exist in the DB.</p>
+                    <p><code>POST /api/webhooks/github</code> for <code>pull_request</code> (<code>opened</code>, <code>synchronize</code>). Validate <code>X-Hub-Signature-256</code> when <code>GITHUB_WEBHOOK_SECRET</code> is set (mismatch → <code>401</code>). Analysis runs async after <code>200</code>. Repo must be connected in Zerqis or the webhook is ignored.</p>
+                    <p><strong>Flow:</strong> changed files → capped fetch at PR head → join <code>api_calls</code> to endpoints → impact → verdict strings <code>SAFE TO MERGE</code>, <code>REVIEW REQUIRED</code>, <code>BLOCKED</code> + score + confidence breakdown → comment; optional AI Insight block is explanation-only; persist <code>pr_predictions</code>; optional status and Slack; may enqueue full-repo scan as PR-priority.</p>
+                    <p><strong>Testing webhooks:</strong> GitHub needs a public URL — use ngrok, Cloudflare Tunnel, or similar; local <code>localhost</code> won’t receive deliveries.</p>
                     <ul class="dev-inline-list">
                         <li><code>PR_MAX_FILES_SCAN</code> (default 50)</li>
-                        <li><code>PR_POST_COMMIT_STATUS</code> / <code>PR_FAIL_ON_REVIEW</code></li>
+                        <li><code>PR_POST_COMMIT_STATUS</code> — <code>BLOCKED</code> fails status; <code>REVIEW REQUIRED</code> fails only if <code>PR_FAIL_ON_REVIEW=true</code></li>
                         <li><code>FRONTEND_URL</code> — links in comments</li>
                     </ul>
+                    <p>Repo docs also cover <code>docs/DEPLOYMENT.md</code> (e.g. Vercel + AWS/DO).</p>
                 </div>
             </details>
         </div>
@@ -244,10 +307,10 @@
                 <div class="coming-soon-card run-local-card animate-pulse">
                     <div class="coming-soon-icon">🚀</div>
                     <h3>Try with your repo</h3>
-                    <p class="run-local-lead"><strong>Database:</strong> <code>createdb architect</code></p>
+                    <p class="run-local-lead"><strong>Database:</strong> <code>createdb zerqis</code> (match <code>DB_URL</code> / <code>application.yml</code>)</p>
                     <p><strong>Backend</strong> <code>http://localhost:8080</code><br><code>cd backend &amp;&amp; mvn spring-boot:run</code></p>
-                    <p><strong>Frontend</strong> <code>http://localhost:3000</code><br><code>cd frontend &amp;&amp; npm i &amp;&amp; npm run dev</code></p>
-                    <p><strong>Docker:</strong> <code>docker compose up --build</code> — set GitHub (and optional Slack) in <code>.env</code>.</p>
+                    <p><strong>Frontend</strong> <code>http://localhost:3000</code><br><code>cd frontend &amp;&amp; npm i &amp;&amp; npm run dev</code> — dev server proxies <code>/api</code> to the backend; for a remote API use <code>VITE_API_BASE_URL</code> in <code>frontend/.env</code>.</p>
+                    <p><strong>Docker:</strong> <code>docker compose up --build</code> — secrets in <code>.env</code> beside compose (GitHub, JWT, DB, optional <code>FRONTEND_URL</code>, <code>CORS_ALLOWED_ORIGINS</code>, Slack).</p>
                     <div class="hero-buttons run-local-ctas">
                         <a href="#pr-example" class="btn btn-secondary">See demo</a>
                     </div>
@@ -272,10 +335,12 @@
                         <a href="#problems">Pain</a>
                         <a href="#how-it-works">How it works</a>
                         <a href="#pr-example">Example</a>
+                        <a href="#atlas">Atlas</a>
                     </div>
                     <div class="footer-column">
                         <h4>Product</h4>
                         <a href="#solution">What you get</a>
+                        <a href="#atlas">Atlas</a>
                         <a href="#run">Run locally</a>
                         <a href="#developers">Technical</a>
                     </div>

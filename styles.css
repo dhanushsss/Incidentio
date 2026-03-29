@@ -1726,9 +1726,21 @@ body {
     margin: 0.35rem 0;
 }
 
+.pr-comment-zerqis {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+}
+
 .pr-comment-risk {
     margin-top: 0.75rem;
     color: var(--text-primary);
+}
+
+.pr-comment-confidence {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
 }
 
 .pr-comment-foot {
@@ -1760,6 +1772,104 @@ body {
     font-size: 0.95rem;
     color: #78350f;
     line-height: 1.55;
+}
+
+.solution-footnote {
+    text-align: center;
+    max-width: 40rem;
+    margin: 2rem auto 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.atlas-section {
+    background: var(--bg-secondary);
+}
+
+.atlas-callout {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    max-width: 48rem;
+    margin: 0 auto 2.5rem;
+    padding: 1.25rem 1.5rem;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(139, 92, 246, 0.06) 100%);
+    border: 1px solid rgba(99, 102, 241, 0.25);
+    border-radius: 1rem;
+}
+
+.atlas-callout-icon {
+    font-size: 1.5rem;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.atlas-callout-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 0.5rem;
+}
+
+.atlas-callout-copy {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.atlas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.atlas-card {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    text-align: left;
+}
+
+.atlas-card h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 0.75rem;
+}
+
+.atlas-card p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+}
+
+.atlas-api-note {
+    text-align: center;
+    max-width: 44rem;
+    margin: 0 auto;
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.atlas-api-note code {
+    font-size: 0.85em;
+}
+
+.dev-ordered-list {
+    margin: 0;
+    padding-left: 1.35rem;
+}
+
+.dev-ordered-list li {
+    margin: 0.5rem 0;
+    padding-left: 0.25rem;
 }
 
 .cta-band {
